@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #fff9ea;
+}
+.contact h2{
+    font-size: 40px;
+    color: #e9a209;
+    text-align: center;
+    margin-bottom: 10px ;
+}
+
+.contact form{
+    width: 600px;
+    text-align: center;
+}
+form .input-box{
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-box .input-field{
+    width: 48.5%;
+}
+
+a{
+    text-decoration: none;
+}
+.field .item{
+    width: 100%;
+    padding: 18px;
+    background: transparent;
+    border: 2px solid #0ef;
+    outline:none ;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #e9a209;
+    margin: 12px 0;
+} 
+
+.field .item::placeholder{
+    color: #e9a209;
+}
+
+.error-txt {
+    font-size: 14px;
+    color: #d93025;
+    text-align: left;
+    margin: -5px 0 10px;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+form .textarea-field .item{
+    resize: none;
+} 
+
+form .textarea-field .error-txt{
+    margin-top: -10px;
+
+}
+
+form button{
+    padding: 12px;
+    background: #0ef;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    box-shadow: 0 0 10px #0ef;
+    font-size: 16px;
+    color: #333;
+    letter-spacing: 1px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: .5s;
+}
+
+form button:hover{
+    box-shadow: none;
+}
+
+.field {
+    position: relative;
+  }
+  
+  .status-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    display: none;
+  }
+  
+  .field.success .item {
+    border-color: #0f0;
+  }
+  
+  .field.error .item {
+    border-color: #d93025;
+  }
+  
+  .field.success .status-icon {
+    display: block;
+    background: url('https://cdn-icons-png.flaticon.com/512/845/845646.png') no-repeat center/cover;
+  }
+  
+  .field.error .status-icon {
+    display: block;
+    background: url('https://cdn-icons-png.flaticon.com/512/463/463612.png') no-repeat center/cover;
+  }

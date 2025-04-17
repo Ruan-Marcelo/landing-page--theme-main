@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "N9ziwX_xtVhMMNSX7",
+        });
+      })();
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.4.2/imask.min.js"></script>
+    <title>Form teste</title>
+  </head>
+  <body>
+    <section class="contact">
+      <h2>Contato me!</h2>
+
+      <form id="contact-form">
+        <div class="input-box">
+          <div class="input-field field">
+            <input
+              type="text"
+              placeholder="Full Name"
+              id="name"
+              class="item"
+              autocomplete="off"
+            />
+            <i class="status-icon fas fa-circle-check"></i>
+            <div class="error-txt">Digite seu nome completo</div>
+          </div>
+          <div class="input-field field">
+            <input
+              type="text"
+              placeholder="Email Address"
+              id="email"
+              class="item"
+              autocomplete="off"
+            />
+            <i class="status-icon fas fa-circle-check"></i>
+            <div class="error-txt">Digite um e-mail válido</div>
+          </div>
+        </div>
+
+        <div class="input-box">
+          <div class="input-field field">
+            <input
+              type="text"
+              placeholder="Phone Number"
+              id="phone"
+              class="item"
+              autocomplete="off"
+            />
+            <i class="status-icon fas fa-circle-check"></i>
+            <div class="error-txt">Digite um telefone válido</div>
+          </div>
+          <div class="input-field field">
+            <input
+              type="text"
+              placeholder="Subject"
+              id="subject"
+              class="item"
+              autocomplete="off"
+            />
+            <i class="status-icon fas fa-circle-check"></i>
+            <div class="error-txt">Digite o assunto</div>
+          </div>
+        </div>
+
+        <div class="textarea-field field">
+          <textarea
+            id="message"
+            class="item"
+            cols="30"
+            rows="10"
+            placeholder="Message"
+            autocomplete="off"
+          ></textarea>
+          <i class="status-icon fas fa-circle-check"></i>
+          <div class="error-txt">Digite a mensagem</div>
+        </div>
+
+        <button type="submit">Enviar</button> <br>
+        <a href="../index.html">Voltar</a>
+      </form>
+    </section>
+
+    <script>
+      const form = document.getElementById("contact-form");
+
+      const name = document.getElementById("name");
+      const email = document.getElementById("email");
+      const phone = document.getElementById("phone");
+      const subject = document.getElementById("subject");
+      const message = document.getElementById("message");
+
+      // Máscara de telefone
+      IMask(phone, {
+        mask: "(00) 00000-0000",
+      });
+
+      // Função de validação de cada campo
+      const validateField = (input, condition, message) => {
+        const fieldDiv = input.parentElement;
+        const errorDiv = fieldDiv.querySelector(".error-txt");
+        const icon = fieldDiv.querySelector(".status-icon");
+
+        if (!condition) {
+          errorDiv.innerText = message;
+          errorDiv.style.display = "block";
+          fieldDiv.classList.add("error");
+          fieldDiv.classList.remove("success");
+          return false;
+        } else {
+          errorDiv.style.display = "none";
+          fieldDiv.classList.remove("error");
+          fieldDiv.classList.add("success");
+          return true;
+        }
+      };
+
+      // Validações em tempo real
+      name.addEventListener("input", () => {
+        validateField(
+          name,
+          name.value.trim() !== "",
+          "Digite seu nome completo"
+        );
+      });
+
+      email.addEventListener("input", () => {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        validateField(
+          email,
+          emailPattern.test(email.value.trim()),
+          "Digite um e-mail válido"
+        );
+      });
+
+      phone.addEventListener("input", () => {
+        validateField(
+          phone,
+          phone.value.trim().length >= 14,
+          "Telefone inválido"
+        );
+      });
+
+      subject.addEventListener("input", () => {
+        validateField(subject, subject.value.trim() !== "", "Digite o assunto");
+      });
+
+      message.addEventListener("input", () => {
+        validateField(
+          message,
+          message.value.trim() !== "",
+          "Digite a mensagem"
+        );
+      });
+
+      // Envio final
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const isNameValid = validateField(
+          name,
+          name.value.trim() !== "",
+          "Digite seu nome completo"
+        );
+        const isEmailValid = validateField(
+          email,
+          /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim()),
+          "Digite um e-mail válido"
+        );
+        const isPhoneValid = validateField(
+          phone,
+          phone.value.trim().length >= 14,
+          "Telefone inválido"
+        );
+        const isSubjectValid = validateField(
+          subject,
+          subject.value.trim() !== "",
+          "Digite o assunto"
+        );
+        const isMessageValid = validateField(
+          message,
+          message.value.trim() !== "",
+          "Digite a mensagem"
+        );
+
+        if (
+          isNameValid &&
+          isEmailValid &&
+          isPhoneValid &&
+          isSubjectValid &&
+          isMessageValid
+        ) {
+          // Remover máscara antes de enviar o telefone
+          const unmaskedPhone = phone.value.replace(/\D/g, "");
+
+          // Preencher o campo com o telefone sem máscara
+          phone.value = unmaskedPhone;
+
+          // Enviar os dados manualmente usando emailjs.send
+          emailjs
+            .send("default_service", "template_621p7oc", {
+              from_name: name.value,
+              email: email.value,
+              phone: phone.value,
+              subject: subject.value,
+              message: message.value,
+            })
+            .then(
+              function () {
+                alert("Mensagem enviada com sucesso!");
+                form.reset();
+                document
+                  .querySelectorAll(".error-txt")
+                  .forEach((el) => (el.style.display = "none"));
+              },
+              function (error) {
+                alert("Erro ao enviar: " + JSON.stringify(error));
+              }
+            );
+        }
+      });
+    </script>
+  </body>
+</html>
+
