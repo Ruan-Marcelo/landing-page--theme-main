@@ -79,6 +79,35 @@
     button:hover {
       background: #0056b3;
     }
+    #loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 9999;
+}
+
+.loader {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #007bff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
   </style>
 
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -239,20 +268,25 @@ form.addEventListener('submit', function (e) {
 
   // Enviar com EmailJS
   emailjs.send('default_service', 'template_0n7tzxr', data)
-    .then(() => {
-      alert('Formulário enviado com sucesso!');
-      form.reset(); // 🔁 Limpa os campos
+  .then(() => {
+    // Mostra tela de loading
+    document.getElementById('loading').style.display = 'flex';
 
-      // 🔄 Limpa validações visuais
-      inputs.forEach(input => {
-        input.classList.remove('valid', 'invalid');
-      });
-    })
-    .catch(() => {
-      alert('Erro ao enviar o formulário.');
-    });
+    // Aguarda 2 segundos antes de redirecionar
+    setTimeout(() => {
+      window.location.href = '../index.html';
+    }, 2000);
+  })
+  .catch(() => {
+    alert('Erro ao enviar o formulário.');
+  });
 });
 
   </script>
+  <div id="loading" style="display: none;">
+    <div class="loader"></div>
+    <p>Redirecionando...</p>
+  </div>
+  
 </body>
 </html>
