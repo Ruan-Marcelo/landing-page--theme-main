@@ -2,6 +2,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
+  <link rel="shortcut icon" type="imagex/png" href="./src/images/Selo-corretor-parceiro-300x300.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Formulário de Cadastro</title>
   <style>
@@ -177,69 +178,81 @@
   </section>
 
   <script>
-    // Máscaras
-    IMask(document.getElementById('cpf'), { mask: '000.000.000-00' });
-    IMask(document.getElementById('telefone-fixo'), { mask: '(00) 0000-0000' });
-    IMask(document.getElementById('celular'), { mask: '(00) 00000-0000' });
-    IMask(document.getElementById('cep'), { mask: '00000-000' });
-    IMask(document.getElementById('rg'), { mask: '00.000.000' });
+  // Máscaras
+IMask(document.getElementById('cpf'), { mask: '000.000.000-00' });
+IMask(document.getElementById('telefone-fixo'), { mask: '(00) 0000-0000' });
+IMask(document.getElementById('celular'), { mask: '(00) 00000-0000' });
+IMask(document.getElementById('cep'), { mask: '00000-000' });
+IMask(document.getElementById('rg'), { mask: '00.000.000' });
 
-    // Validação em tempo real
-    const form = document.getElementById('contact-form');
-    const inputs = form.querySelectorAll('input, select');
+// Validação em tempo real
+const form = document.getElementById('contact-form');
+const inputs = form.querySelectorAll('input, select');
 
-    inputs.forEach(input => {
-      input.addEventListener('input', () => validateField(input));
-    });
+inputs.forEach(input => {
+  input.addEventListener('input', () => validateField(input));
+});
 
-    function validateField(field) {
-      const error = field.nextElementSibling;
-      if (field.value.trim() === '') {
-        field.classList.add('invalid');
-        field.classList.remove('valid');
-        if (error) error.style.display = 'block';
-      } else {
-        field.classList.remove('invalid');
-        field.classList.add('valid');
-        if (error) error.style.display = 'none';
-      }
-    }
+function validateField(field) {
+  const error = field.nextElementSibling;
+  if (field.value.trim() === '') {
+    field.classList.add('invalid');
+    field.classList.remove('valid');
+    if (error) error.style.display = 'block';
+  } else {
+    field.classList.remove('invalid');
+    field.classList.add('valid');
+    if (error) error.style.display = 'none';
+  }
+}
 
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
 
-      let valid = true;
+  let valid = true;
+  inputs.forEach(input => {
+    validateField(input);
+    if (!input.classList.contains('valid')) valid = false;
+  });
+
+  if (!valid) {
+    alert('Preencha todos os campos corretamente.');
+    return;
+  }
+
+  // Dados do formulário
+  const data = {
+    nome_titular: document.getElementById('nome-titular').value,
+    rg: document.getElementById('rg').value,
+    cpf: document.getElementById('cpf').value,
+    nascimento: document.getElementById('data-nascimento').value,
+    nome_mae: document.getElementById('nome-mae').value,
+    telefone_fixo: document.getElementById('telefone-fixo').value,
+    celular: document.getElementById('celular').value,
+    plano: document.getElementById('plano').value,
+    rua: document.getElementById('rua').value,
+    numero: document.getElementById('numero').value,
+    complemento: document.getElementById('complemento').value,
+    bairro: document.getElementById('bairro').value,
+    cep: document.getElementById('cep').value
+  };
+
+  // Enviar com EmailJS
+  emailjs.send('default_service', 'template_0n7tzxr', data)
+    .then(() => {
+      alert('Formulário enviado com sucesso!');
+      form.reset(); // 🔁 Limpa os campos
+
+      // 🔄 Limpa validações visuais
       inputs.forEach(input => {
-        validateField(input);
-        if (!input.classList.contains('valid')) valid = false;
+        input.classList.remove('valid', 'invalid');
       });
-
-      if (!valid) {
-        alert('Preencha todos os campos corretamente.');
-        return;
-      }
-
-      // Enviar com EmailJS
-      const data = {
-        nome_titular: document.getElementById('nome-titular').value,
-        rg: document.getElementById('rg').value,
-        cpf: document.getElementById('cpf').value,
-        nascimento: document.getElementById('data-nascimento').value,
-        nome_mae: document.getElementById('nome-mae').value,
-        telefone_fixo: document.getElementById('telefone-fixo').value,
-        celular: document.getElementById('celular').value,
-        plano: document.getElementById('plano').value,
-        rua: document.getElementById('rua').value,
-        numero: document.getElementById('numero').value,
-        complemento: document.getElementById('complemento').value,
-        bairro: document.getElementById('bairro').value,
-        cep: document.getElementById('cep').value
-      };
-
-      emailjs.send('default_service', 'template_0n7tzxr', data)
-        .then(() => alert('Formulário enviado com sucesso!'))
-        .catch(() => alert('Erro ao enviar o formulário.'));
+    })
+    .catch(() => {
+      alert('Erro ao enviar o formulário.');
     });
+});
+
   </script>
 </body>
 </html>
