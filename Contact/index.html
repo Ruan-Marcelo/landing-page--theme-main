@@ -2,7 +2,16 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <link rel="shortcut icon" type="imagex/png" href="./src/images/Selo-corretor-parceiro-300x300.png">
+  <link rel="shortcut icon" type="imagex/png" href="../src/images/Selo-corretor-parceiro-300x300.png">
+  <link rel="stylesheet" href="../src/styles/styles.css">
+  <link rel="text/javascript" href="../src/javascript/script.js">
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.4.2/imask.min.js"></script>
+  <script>
+    (function () {
+      emailjs.init('N9ziwX_xtVhMMNSX7');
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Formulário de Cadastro</title>
   <style>
@@ -107,18 +116,127 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-
+ /* Dropdown ativado ao passar o mouse */
+ .nav-item details {
+       position: relative;
+   }
+   
+   .nav-item summary {
+       list-style: none;
+       cursor: pointer;
+       font-weight: 600;
+       color: #005aa7; /* Cor principal do tema OdontoPrev */
+   }
+   
+   .nav-item summary::-webkit-details-marker {
+       display: none;
+   }
+   
+   /* Menu suspenso */
+   .nav-item:hover .dropdown-menu {
+       display: flex;
+   }
+   
+   .dropdown-menu {
+       position: absolute;
+       top: 100%;
+       left: 0;
+       background-color: #ffffff; /* Fundo branco */
+       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+       padding: 8px 0;
+       display: none; /* Escondido por padrão */
+       flex-direction: column;
+       border-radius: 4px;
+       min-width: 160px;
+       z-index: 10;
+   }
+   
+   .dropdown-menu li {
+       list-style: none;
+       padding: 8px 16px;
+       transition: background 0.2s;
+   }
+   
+   .dropdown-menu li a {
+       text-decoration: none;
+       color: #005aa7; /* Cor dos links */
+       font-size: 0.95rem;
+   }
+   
+   .dropdown-menu li:hover {
+       background-color: #f2f5f7; /* Cor de fundo ao passar o mouse */
+   }
+   
+   .dropdown-menu li a:hover {
+       color: #003d7a; /* Cor ao passar o mouse sobre o link */
+   }
   </style>
-
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.4.2/imask.min.js"></script>
-  <script>
-    (function () {
-      emailjs.init('N9ziwX_xtVhMMNSX7');
-    })();
-  </script>
 </head>
 <body>
+       <header>
+           <nav id="navbar">
+               <img src="../src/images/Logo-odontoprev-plano-odontologicos.png" alt="OdontoPrev">
+   
+               <ul id="nav_list">
+                   <li class="nav-item active">
+                       <a href="#home">HOME</a>
+                   </li>
+                   <li class="nav-item">
+                       <a href="#menu">CONHEÇA A ODONTOPREV</a>
+                   </li>
+                   
+                       <li class="nav-item dropdown">
+                           <details>
+                               <summary>PLANOS</summary>
+                               <ul class="dropdown-menu">
+                                   <li><a href="#plano-essencial">Essencial</a></li>
+                                   <li><a href="#plano-plus">Plus</a></li>
+                                   <li><a href="#plano-premium">Premium</a></li>
+                               </ul>
+                           </details>
+                       </li>
+                  
+                   <li class="nav-item">
+                       <a href="#">DUVIDAS</a>
+                   </li>
+                   <li class="nav-item">
+                       <a href="#testimonials">REDE CREDENCIADA</a>
+                   </li>
+               </ul>
+   
+               <button class="btn-default">
+                  <a href="./Contact/index.html">CONTATO</a> 
+               </button>
+   
+               <button id="mobile_btn">
+                   <i class="fa-solid fa-bars"></i>
+               </button>
+           </nav>
+   
+           <div id="mobile_menu">
+               <ul id="mobile_nav_list">
+                   <li class="nav-item ">
+                       <a href="#home">HOME</a>
+                   </li>
+                   <li class="nav-item">
+                       <a href="#menu">CONHEÇA A ODONTOPREV</a>
+                   </li>
+                   <li class="nav-item">
+                       <a href="#testimonials">PLANOS</a>
+                   </li>
+                   <li class="nav-item">
+                       <a href="#testimonials">DUVIDAS</a>
+                   </li>
+                   <li class="nav-item">
+                       <a href="#testimonials">REDE CREDENCIADA</a>
+                   </li>
+               </ul>
+   
+               <button class="btn-default">
+                   <a href="./Contact/index.html">CONTATO</a> 
+               </button>
+           </div>
+       </header>
   <section class="contact">
     <h2>Formulário de Cadastro</h2>
     <form id="contact-form">
@@ -288,5 +406,14 @@ form.addEventListener('submit', function (e) {
     <p>Redirecionando...</p>
   </div>
   
+  <footer>
+    <img src="src/images/wave.svg" alt="">
+
+    <div id="footer_items">
+        <span id="copyright">
+            &copy 2024 TESTETESTE
+        </span>
+    </div>
+</footer>
 </body>
 </html>
