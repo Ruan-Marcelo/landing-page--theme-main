@@ -170,12 +170,13 @@
    .dropdown-menu li a:hover {
        color: #003d7a; /* Cor ao passar o mouse sobre o link */
    }
+
   </style>
 </head>
 <body>
        <header>
            <nav id="navbar">
-               <img src="../src/images/Logo-odontoprev-plano-odontologicos.png" alt="OdontoPrev">
+              <a href="../index.html"> <img src="../src/images/Logo-odontoprev-plano-odontologicos.png" alt="OdontoPrev"></a>
    
                <ul id="nav_list">
                    <li class="nav-item active">
@@ -221,9 +222,16 @@
                    <li class="nav-item">
                        <a href="#menu">CONHEÇA A ODONTOPREV</a>
                    </li>
-                   <li class="nav-item">
-                       <a href="#testimonials">PLANOS</a>
-                   </li>
+                   <li class="nav-item dropdown">
+                    <details>
+                        <summary>PLANOS</summary>
+                        <ul class="dropdown-menu">
+                            <li><a href="#plano-essencial">Essencial</a></li>
+                            <li><a href="#plano-plus">Plus</a></li>
+                            <li><a href="#plano-premium">Premium</a></li>
+                        </ul>
+                    </details>
+                </li>
                    <li class="nav-item">
                        <a href="#testimonials">DUVIDAS</a>
                    </li>
