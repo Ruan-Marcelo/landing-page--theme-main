@@ -1390,5 +1390,13 @@ width: 40%;
         });
       </script>
       <script src="src/javascript/script.js"></script>    
+      <script>
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.addEventListener('keydown', event => {
+          if (event.ctrlKey && (event.key === 'u' || event.key === 's' || event.key === 'c')) {
+            event.preventDefault();
+          }
+        });
+      </script>
 </body>
 </html>
