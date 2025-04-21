@@ -37,7 +37,10 @@ Branco: #FFFFFF */
 }
 a {
   text-decoration: none;
+}a:visited {
+  color: black;
 }
+
 html {
   scroll-behavior: smooth;
 }
@@ -69,7 +72,7 @@ section {
 }
 
 .btn-default:hover {
-  background-color: var(--color-primary-3);
+  background-color: #003366
 }
 
 .social-media-buttons {
