@@ -64,3 +64,20 @@ $(document).ready(function() {
         distance: '10%'
     })
 });
+
+// onclick="abrirWhatsApp()"
+    function abrirWhatsApp() {
+        const numero = '5516991254525'; // Substitua pelo seu número
+        const mensagem = encodeURIComponent("Olá! Gostaria de mais informações.");
+  
+        // Detecta se o usuário está no mobile
+        const isMobile = /iPhone|Android|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
+  
+        // Escolhe a URL apropriada
+        const url = isMobile
+          ? `https://wa.me/${numero}?text=${mensagem}`
+          : `https://web.whatsapp.com/send?phone=${numero}&text=${mensagem}`;
+  
+        // Abre o link em nova aba
+        window.open(url, '_blank');
+      }
