@@ -103,64 +103,64 @@ function aceitarCookies() {
     });
   }
   
-// Função para aceitar cookies
-function aceitarCookies() {
-    const dataAtual = new Date().toISOString(); // Obtém a data atual
-    document.cookie = "cookieConsentDate=" + encodeURIComponent(dataAtual) + "; path=/"; // Armazena a data de consentimento nos cookies (sem max-age, vai expirar no fim da sessão)
-    document.getElementById("cookie-banner").style.display = "none"; // Oculta o banner de cookies
-    mostrarStatusCookie(dataAtual); // Mostra o status de consentimento (se necessário)
+// // Função para aceitar cookies
+// function aceitarCookies() {
+//     const dataAtual = new Date().toISOString(); // Obtém a data atual
+//     document.cookie = "cookieConsentDate=" + encodeURIComponent(dataAtual) + "; path=/"; // Armazena a data de consentimento nos cookies (sem max-age, vai expirar no fim da sessão)
+//     document.getElementById("cookie-banner").style.display = "none"; // Oculta o banner de cookies
+//     mostrarStatusCookie(dataAtual); // Mostra o status de consentimento (se necessário)
   
-    // Envia um e-mail via EmailJS com as informações de consentimento
-    emailjs.send("default_service", "template_6ewf9ti", {
-      data_consentimento: new Date().toLocaleString("pt-BR"),
-      usuario: navigator.userAgent, // Envia informações do navegador do usuário
-      pagina: window.location.href // Envia o URL da página
-    }).then(function(response) {
-      console.log("Email enviado com sucesso!", response.status, response.text); // Caso o e-mail seja enviado com sucesso
-    }, function(error) {
-      console.error("Erro ao enviar e-mail:", error); // Caso ocorra um erro no envio
-      alert("Ocorreu um erro ao enviar o e-mail. Tente novamente mais tarde."); // Mensagem de erro
-    });
-  }
+//     // Envia um e-mail via EmailJS com as informações de consentimento
+//     emailjs.send("default_service", "template_6ewf9ti", {
+//       data_consentimento: new Date().toLocaleString("pt-BR"),
+//       usuario: navigator.userAgent, // Envia informações do navegador do usuário
+//       pagina: window.location.href // Envia o URL da página
+//     }).then(function(response) {
+//       console.log("Email enviado com sucesso!", response.status, response.text); // Caso o e-mail seja enviado com sucesso
+//     }, function(error) {
+//       console.error("Erro ao enviar e-mail:", error); // Caso ocorra um erro no envio
+//       alert("Ocorreu um erro ao enviar o e-mail. Tente novamente mais tarde."); // Mensagem de erro
+//     });
+//   }
   
-  // Função para recusar cookies
-  function recusarCookies() {
-    // Apaga o cookie de consentimento
-    document.cookie = "cookieConsentDate=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
-    document.getElementById("cookie-banner").style.display = "none"; // Oculta o banner de cookies
-    document.getElementById("status-cookie").style.display = "none"; // Oculta a exibição do status de consentimento
-  }
+//   // Função para recusar cookies
+//   function recusarCookies() {
+//     // Apaga o cookie de consentimento
+//     document.cookie = "cookieConsentDate=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+//     document.getElementById("cookie-banner").style.display = "none"; // Oculta o banner de cookies
+//     document.getElementById("status-cookie").style.display = "none"; // Oculta a exibição do status de consentimento
+//   }
   
-  // Função para obter o valor de um cookie específico
-  function getCookie(nome) {
-    const nomeEQ = nome + "="; // Prepara a chave para busca
-    const cookies = document.cookie.split(';'); // Divide os cookies existentes
-    for (let i = 0; i < cookies.length; i++) {
-      let c = cookies[i].trim(); // Remove espaços extras
-      if (c.indexOf(nomeEQ) === 0) return decodeURIComponent(c.substring(nomeEQ.length)); // Retorna o valor do cookie
-    }
-    return null; // Caso o cookie não seja encontrado
-  }
+//   // Função para obter o valor de um cookie específico
+//   function getCookie(nome) {
+//     const nomeEQ = nome + "="; // Prepara a chave para busca
+//     const cookies = document.cookie.split(';'); // Divide os cookies existentes
+//     for (let i = 0; i < cookies.length; i++) {
+//       let c = cookies[i].trim(); // Remove espaços extras
+//       if (c.indexOf(nomeEQ) === 0) return decodeURIComponent(c.substring(nomeEQ.length)); // Retorna o valor do cookie
+//     }
+//     return null; // Caso o cookie não seja encontrado
+//   }
   
-  // Função para mostrar o status do consentimento de cookies
-  function mostrarStatusCookie(dataISO) {
-    const container = document.getElementById("status-cookie");
-    if (dataISO) {
-      const data = new Date(dataISO); // Converte a data ISO para um objeto Date
-      const formatada = data.toLocaleDateString('pt-BR') + " às " + data.toLocaleTimeString('pt-BR').slice(0, 5); // Formata a data e hora
-      // container.innerText = "✅ Você aceitou os cookies em: " + formatada; // Mostrar a mensagem com a data
-      // container.style.display = "block"; // Exibe o status de consentimento
-    }
-  }
+//   // Função para mostrar o status do consentimento de cookies
+//   function mostrarStatusCookie(dataISO) {
+//     const container = document.getElementById("status-cookie");
+//     if (dataISO) {
+//       const data = new Date(dataISO); // Converte a data ISO para um objeto Date
+//       const formatada = data.toLocaleDateString('pt-BR') + " às " + data.toLocaleTimeString('pt-BR').slice(0, 5); // Formata a data e hora
+//       // container.innerText = "✅ Você aceitou os cookies em: " + formatada; // Mostrar a mensagem com a data
+//       // container.style.display = "block"; // Exibe o status de consentimento
+//     }
+//   }
   
-  // Ao carregar a página
-  window.onload = function () {
-    const dataConsentimento = getCookie("cookieConsentDate"); // Tenta obter a data do consentimento nos cookies
-    if (!dataConsentimento) {
-      document.getElementById("cookie-banner").style.display = "flex"; // Exibe o banner se o cookie de consentimento não existir
-    } else {
-      mostrarStatusCookie(dataConsentimento); // Se a data de consentimento existir, mostra o status
-    }
-  }
+//   // Ao carregar a página
+//   window.onload = function () {
+//     const dataConsentimento = getCookie("cookieConsentDate"); // Tenta obter a data do consentimento nos cookies
+//     if (!dataConsentimento) {
+//       document.getElementById("cookie-banner").style.display = "flex"; // Exibe o banner se o cookie de consentimento não existir
+//     } else {
+//       mostrarStatusCookie(dataConsentimento); // Se a data de consentimento existir, mostra o status
+//     }
+//   }
   
   
