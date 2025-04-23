@@ -81,3 +81,64 @@ $(document).ready(function() {
         // Abre o link em nova aba
         window.open(url, '_blank');
       }
+
+
+      //cookies
+      function aceitarCookies() {
+        const dataAtual = new Date().toISOString();
+        document.cookie = "cookieConsentDate=" + encodeURIComponent(dataAtual) + "; path=/; max-age=31536000";
+        document.getElementById("cookie-banner").style.display = "none";
+        mostrarStatusCookie(dataAtual);
+      
+        // Envia e-mail via EmailJS
+        emailjs.send("default_service", "template_6ewf9ti", {
+          data_consentimento: new Date().toLocaleString("pt-BR"),
+          usuario: navigator.userAgent,
+          pagina: window.location.href
+        }).then(function(response) {
+          console.log("Email enviado com sucesso!", response.status, response.text);
+        }, function(error) {
+          console.error("Erro ao enviar e-mail:", error);
+          alert("Ocorreu um erro ao enviar o e-mail. Tente novamente mais tarde.");
+        });
+      }
+      
+          function recusarCookies() {
+            // Apaga o cookie
+            document.cookie = "cookieConsentDate=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+            document.getElementById("cookie-banner").style.display = "none";
+            document.getElementById("status-cookie").style.display = "none";
+          }
+      
+          function getCookie(nome) {
+            const nomeEQ = nome + "=";
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+              let c = cookies[i].trim();
+              if (c.indexOf(nomeEQ) === 0) return decodeURIComponent(c.substring(nomeEQ.length));
+            }
+            return null;
+          }
+      
+          function mostrarStatusCookie(dataISO) {
+            const container = document.getElementById("status-cookie");
+            if (dataISO) {
+              const data = new Date(dataISO);
+              const formatada = data.toLocaleDateString('pt-BR') + " às " + data.toLocaleTimeString('pt-BR').slice(0, 5);
+              //container.innerText = "✅ Você aceitou os cookies em: " + formatada;
+              //container.style.display = "block";
+            }
+          }
+      
+          // TESTE: mostra o banner a cada 5 segundos (desative em produção)
+          setInterval(() => {
+            document.getElementById("cookie-banner").style.display = "flex";
+          }, 5000);
+      
+          // Ao carregar
+          window.onload = function () {
+            const dataConsentimento = getCookie("cookieConsentDate");
+            if (dataConsentimento) {
+              mostrarStatusCookie(dataConsentimento);
+            }
+          }
