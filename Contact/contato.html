@@ -7,6 +7,7 @@
       type="imagex/png"
       href="../src/images/Selo-corretor-parceiro-300x300.png"
     />
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../src/styles/styles.css" />
     <link rel="text/javascript" href="../src/javascript/script.js" />
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -18,252 +19,82 @@
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Formulário de Cadastro</title>
-    <style>
-           /* Reset */
-           * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-      body {
-        font-family: system-ui, sans-serif;
-        background: #f7f7f7;
-        padding: 20px;
-      }
-
-      h2 {
-        text-align: center;
-        color: #333;
-      }
-
-      .contact {
-        max-width: 800px;
-        margin: auto;
-        background: white;
-        padding: 30px;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      .input-box {
-        display: flex;
-        gap: 20px;
-        margin-bottom: 20px;
-        flex-wrap: wrap;
-      }
-
-      .input-field {
-        flex: 1;
-        position: relative;
-      }
-
-      input,
-      select {
-        width: 100%;
-        padding: 10px;
-        border: 2px solid #ddd;
-        border-radius: 5px;
-        outline: none;
-        transition: 0.3s ease;
-      }
-
-      input:focus,
-      select:focus {
-        border-color: #007bff;
-      }
-
-      .error-txt {
-        color: red;
-        font-size: 12px;
-        display: none;
-        margin-top: 5px;
-      }
-
-      input.valid {
-        border-color: green;
-      }
-
-      input.invalid {
-        border-color: red;
-      }
-
-      button {
-        background: #007bff;
-        color: white;
-        border: none;
-        padding: 12px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: 0.3s;
-      }
-
-      button:hover {
-        background: #0056b3;
-      }
-      #loading {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, 0.9);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        z-index: 9999;
-      }
-
-      .loader {
-        border: 5px solid #f3f3f3;
-        border-top: 5px solid #007bff;
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-        animation: spin 1s linear infinite;
-        margin-bottom: 15px;
-      }
-
-      @keyframes spin {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-      /* Dropdown ativado ao passar o mouse */
-      .nav-item details {
-        position: relative;
-      }
-
-      .nav-item summary {
-        list-style: none;
-        cursor: pointer;
-        font-weight: 600;
-        color: #005aa7; /* Cor principal do tema OdontoPrev */
-      }
-
-      .nav-item summary::-webkit-details-marker {
-        display: none;
-      }
-
-      /* Menu suspenso */
-      .nav-item:hover .dropdown-menu {
-        display: flex;
-      }
-
-      .dropdown-menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background-color: #ffffff; /* Fundo branco */
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        padding: 8px 0;
-        display: none; /* Escondido por padrão */
-        flex-direction: column;
-        border-radius: 4px;
-        min-width: 160px;
-        z-index: 10;
-      }
-
-      .dropdown-menu li {
-        list-style: none;
-        padding: 8px 16px;
-        transition: background 0.2s;
-      }
-
-      .dropdown-menu li a {
-        text-decoration: none;
-        color: #005aa7; /* Cor dos links */
-        font-size: 0.95rem;
-      }
-
-      .dropdown-menu li:hover {
-        background-color: #f2f5f7; /* Cor de fundo ao passar o mouse */
-      }
-
-      .dropdown-menu li a:hover {
-        color: #003d7a; /* Cor ao passar o mouse sobre o link */
-      }
+    <style>     
+      
     </style>
   </head>
   <body>
-    <header>
+    <header>     
       <nav id="navbar">
-        <a href="../index.html">
-          <img
-            src="../src/images/Logo-odontoprev-plano-odontologicos.png"
-            alt="OdontoPrev"
-        /></a>
+        <a href="../index.html"> <img src="../src/images/Logo-odontoprev-plano-odontologicos.png" alt="OdontoPrev" id="logo"></a> 
 
-        <ul id="nav_list">
-          <li class="nav-item active">
-            <a href="#home">HOME</a>
-          </li>
-          <li class="nav-item">
-            <a href="#menu">CONHEÇA A ODONTOPREV</a>
-          </li>
+          <ul id="nav_list">
+              <li class="nav-item active">
+                  <a href="./index.html">HOME</a>
+              </li>
+              <li class="nav-item">
+                  <a href="./sobre.html">CONHEÇA A ODONTOPREV</a>
+              </li>
+              
+                  <li class="nav-item dropdown">
+                      <details>
+                          <summary>PLANOS</summary>
+                          <ul class="dropdown-menu">
+                              <li><a href="contato.html">Essencial</a></li>
+                              <li><a href="contato.html">Plus</a></li>
+                              <li><a href="contato.html">Premium</a></li>
+                          </ul>
+                      </details>
+                  </li>
+             
+              <li class="nav-item">
+                  <a href="#">DUVIDAS</a>
+              </li>
+              <li class="nav-item">
+                  <a href="#testimonials">REDE CREDENCIADA</a>
+              </li>
+          </ul>
 
-          <li class="nav-item dropdown">
-            <details>
-              <summary>PLANOS</summary>
-              <ul class="dropdown-menu">
-                <li><a href="#plano-essencial">Essencial</a></li>
-                <li><a href="#plano-plus">Plus</a></li>
-                <li><a href="#plano-premium">Premium</a></li>
-              </ul>
-            </details>
-          </li>
+          <!-- Botão CONTATO separado -->
+    <a href="./Contact/contato.html" class="btn-default ">CONTATO</a>
 
-          <li class="nav-item">
-            <a href="#">DUVIDAS</a>
-          </li>
-          <li class="nav-item">
-            <a href="#testimonials">REDE CREDENCIADA</a>
-          </li>
-        </ul>
 
-        <button class="btn-default">
-          <a href="./index.html">CONTATO</a>
-        </button>
-
-        <button id="mobile_btn">
-          <i class="fa-solid fa-bars"></i>
-        </button>
+          <button id="mobile_btn">
+              <i class="fa-solid fa-bars"></i>
+          </button>
       </nav>
 
       <div id="mobile_menu">
-        <ul id="mobile_nav_list">
-          <li class="nav-item">
-            <a href="#home">HOME</a>
-          </li>
-          <li class="nav-item">
-            <a href="#menu">CONHEÇA A ODONTOPREV</a>
-          </li>
-          <li class="nav-item dropdown">
-            <details>
-              <summary>PLANOS</summary>
-              <ul class="dropdown-menu">
-                <li><a href="./index.html">Essencial</a></li>
-                <li><a href="./index.html">Plus</a></li>
-                <li><a href="./index.html">Premium</a></li>
-              </ul>
-            </details>
-          </li>
-          <li class="nav-item">
-            <a href="#testimonials">DUVIDAS</a>
-          </li>
-          <li class="nav-item">
-            <a href="#testimonials">REDE CREDENCIADA</a>
-          </li>
-        </ul>
+          <ul id="mobile_nav_list">
+              <li class="nav-item ">
+                  <a href="./index.html">HOME</a>
+              </li>
+              <li class="nav-item">
+                  <a href="./sobre.html">CONHEÇA A ODONTOPREV</a>
+              </li>
+              <li class="nav-item dropdown">
+                <details>
+                    <summary>PLANOS</summary>
+                    <ul class="dropdown-menu">
+                        <li><a href="contato.html">Essencial</a></li>
+                        <li><a href="contato.html">Plus</a></li>
+                        <li><a href="contato.html">Premium</a></li>
+                    </ul>
+                </details>
+            </li>
+              <li class="nav-item">
+                  <a href="#testimonials">DUVIDAS</a>
+              </li>
+              <li class="nav-item">
+                  <a href="#testimonials">REDE CREDENCIADA</a>
+              </li>
 
-        <button class="btn-default">
-          <a href="./index.html">CONTATO</a>
-        </button>
+              <li class="nav-item">             
+                <a href="contato.html">CONTATO</a> 
+            </li>
+          </ul>
       </div>
-    </header>
+  </header>
     <section class="contact">
       <h2>Formulário de Cadastro</h2>
       <form id="contact-form">
@@ -453,26 +284,48 @@
       <div class="loader"></div>
       <p>Redirecionando...</p>
     </div>
-    <center style="margin-top: 30px;margin-bottom: 50px;">
-      <iframe width="310" height="286" src="https://www.youtube.com/embed/4ULxVMcAO38" title="Seja bem-vindo à Odontoprev!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      <iframe width="310" height="286" src="https://www.youtube.com/embed/rWes7M1Q0vQ" title="OdontoPrev - Sua Boca Fala por Você" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  </center>
+    <div class="video-wrapper">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/4ULxVMcAO38" title="Seja bem-vindo à Odontoprev!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/rWes7M1Q0vQ" title="OdontoPrev - Sua Boca Fala por Você" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
     <footer>
           <img src="src/images/wave.svg" alt="">
   
-          <div id="footer_items">
-              <span id="copyright">
-                  &copy 2024 TESTETESTE
-              </span>       
-          </div>
+          <footer>
+            <img src="src/images/wave.svg" alt="">
+    
+            <div id="footer_items">
+                <span id="copyright">
+                    &copy 2024 TESTETESTE
+                </span>
+    
+                <div class="social-media-buttons">
+                    <a href="">
+                        <i class="fa-brands fa-whatsapp"onclick="abrirWhatsApp()"></i>
+                    </a>
+    
+                    <a href="">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+    
+                    <a href="">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
       </footer>
-    <script>
+    <!-- <script>
       document.addEventListener('contextmenu', event => event.preventDefault());
       document.addEventListener('keydown', event => {
         if (event.ctrlKey && (event.key === 'u' || event.key === 's' || event.key === 'c')) {
           event.preventDefault();
         }
       });
-    </script>
+    </script> -->
   </body>
 </html>

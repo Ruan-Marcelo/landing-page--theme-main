@@ -1,123 +1,97 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-body{
+
+  .contact {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .input-box {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .input-field {
+    flex: 1;
+    position: relative;
+  }
+
+  input,
+  select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: 0.3s ease;
+  }
+
+  input:focus,
+  select:focus {
+    border-color: #007bff;
+  }
+
+  .error-txt {
+    color: red;
+    font-size: 12px;
+    display: none;
+    margin-top: 5px;
+  }
+
+  input.valid {
+    border-color: green;
+  }
+
+  input.invalid {
+    border-color: red;
+  }
+
+  button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    background: #0056b3;
+  }
+  #loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: #fff9ea;
-}
-.contact h2{
-    font-size: 40px;
-    color: #e9a209;
-    text-align: center;
-    margin-bottom: 10px ;
-}
-
-.contact form{
-    width: 600px;
-    text-align: center;
-}
-form .input-box{
-    display: flex;
-    justify-content: space-between;
-}
-
-.input-box .input-field{
-    width: 48.5%;
-}
-
-a{
-    text-decoration: none;
-}
-.field .item{
-    width: 100%;
-    padding: 18px;
-    background: transparent;
-    border: 2px solid #0ef;
-    outline:none ;
-    border-radius: 6px;
-    font-size: 16px;
-    color: #e9a209;
-    margin: 12px 0;
-} 
-
-.field .item::placeholder{
-    color: #e9a209;
-}
-
-.error-txt {
-    font-size: 14px;
-    color: #d93025;
-    text-align: left;
-    margin: -5px 0 10px;
-    display: none;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    flex-direction: column;
+    z-index: 9999;
   }
 
-form .textarea-field .item{
-    resize: none;
-} 
-
-form .textarea-field .error-txt{
-    margin-top: -10px;
-
-}
-
-form button{
-    padding: 12px;
-    background: #0ef;
-    border: none;
-    outline: none;
-    border-radius: 6px;
-    box-shadow: 0 0 10px #0ef;
-    font-size: 16px;
-    color: #333;
-    letter-spacing: 1px;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: .5s;
-}
-
-form button:hover{
-    box-shadow: none;
-}
-
-.field {
-    position: relative;
+  .loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #007bff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
   }
-  
-  .status-icon {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    display: none;
-  }
-  
-  .field.success .item {
-    border-color: #0f0;
-  }
-  
-  .field.error .item {
-    border-color: #d93025;
-  }
-  
-  .field.success .status-icon {
-    display: block;
-    background: url('https://cdn-icons-png.flaticon.com/512/845/845646.png') no-repeat center/cover;
-  }
-  
-  .field.error .status-icon {
-    display: block;
-    background: url('https://cdn-icons-png.flaticon.com/512/463/463612.png') no-repeat center/cover;
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }

@@ -56,9 +56,9 @@
                         <details>
                             <summary>PLANOS</summary>
                             <ul class="dropdown-menu">
-                                <li><a href="./Contact/index.html">Essencial</a></li>
-                                <li><a href="./Contact/index.html">Plus</a></li>
-                                <li><a href="./Contact/index.html">Premium</a></li>
+                                <li><a href="./Contact/contato.html">Essencial</a></li>
+                                <li><a href="./Contact/contato.html">Plus</a></li>
+                                <li><a href="./Contact/contato.html">Premium</a></li>
                             </ul>
                         </details>
                     </li>
@@ -72,7 +72,7 @@
             </ul>
 
             <!-- Botão CONTATO separado -->
-      <a href="./Contact/index.html" class="btn-default ">CONTATO</a>
+      <a href="./Contact/contato.html" class="btn-default ">CONTATO</a>
 
 
             <button id="mobile_btn">
@@ -92,9 +92,9 @@
                   <details>
                       <summary>PLANOS</summary>
                       <ul class="dropdown-menu">
-                          <li><a href="./Contact/index.htmll">Essencial</a></li>
-                          <li><a href="./Contact/index.html">Plus</a></li>
-                          <li><a href="./Contact/index.html">Premium</a></li>
+                          <li><a href="./Contact/contato.html">Essencial</a></li>
+                          <li><a href="./Contact/contato.html">Plus</a></li>
+                          <li><a href="./Contact/contato.html">Premium</a></li>
                       </ul>
                   </details>
               </li>
@@ -106,7 +106,7 @@
                 </li>
 
                 <li class="nav-item">             
-                  <a href="./Contact/index.html">CONTATO</a> 
+                  <a href="./Contact/contato.html">CONTATO</a> 
               </li>
             </ul>
         </div>
@@ -146,7 +146,7 @@
           <!-- Segunda linha -->
           <div class="row" style="display: flex; gap: 20px; flex-wrap: wrap;">
                
-  <!-- Ligamos Para Você (50% da largura) -->
+  <!-- Ligamos Para Você (50% da largura da linha) -->
   <div class="col" style="flex: 0 0 50%; background-color: rgba(43, 172, 175, 0.67); padding: 20px; text-align: center; border-radius: 10px;">
     <h3 style="color: #db5386;">Ligamos Para Você</h3>
     <form style="color: #fff;" id="contact-form">
@@ -193,14 +193,53 @@
         <button type="submit" class="button">Enviar</button>
       </div>
     </form>
-
-    <!-- Botão WhatsApp -->
-    <div style="margin-top: 20px;">
-      <button onclick="abrirWhatsApp()" style="padding: 10px 20px; background-color: #25D366; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;">
-        Falar no WhatsApp
-      </button>
-    </div>
+   <!-- Mensagem de Sucesso -->
+<div id="success-message" style="display: none; padding: 20px; background-color: #4CAF50; color: white; border-radius: 8px; text-align: center; margin-top: 20px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); font-family: 'Arial', sans-serif; position: relative;">
+  <i class="fas fa-check-circle" style="font-size: 30px; margin-right: 10px;"></i>
+  <strong>Sua solicitação foi enviada com sucesso!</strong>
+  <p style="font-size: 14px; margin-top: 8px;">Em breve, entraremos em contato para mais informações.</p>
+  <button id="close-message" style="position: absolute; top: 5px; right: 10px; background: transparent; border: none; color: white; font-size: 18px; cursor: pointer;"> × </button>
   </div>
+  <style>
+    #success-message {
+  display: none;
+  padding: 20px;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  position: relative;
+}
+
+#success-message i {
+  color: black;
+  font-size: 30px;
+  margin-right: 10px;
+}
+
+#success-message p {
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+#success-message button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#success-message button:hover {
+  opacity: 0.7;
+}
+  </style>
 
 </div>
       </section>
@@ -1170,10 +1209,14 @@ width: 40%;
 <h2 class="section-title center" style=" margin-top: 50px;">Compare e veja as diferenças</h2>
 <center><img loading="lazy" decoding="async" width="400px" height="500px" src="./src/images/tabela_planos-768x633.jpg" class="attachment-large size-large" alt="tabela_planos" sizes="auto, (max-width: 1020px) 100vw, 1020px"></center>
 
-<center style="margin-top: 30px;margin-bottom: 50px;">
-    <iframe width="410" height="286" src="https://www.youtube.com/embed/4ULxVMcAO38" title="Seja bem-vindo à Odontoprev!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    <iframe width="410" height="286" src="https://www.youtube.com/embed/rWes7M1Q0vQ" title="OdontoPrev - Sua Boca Fala por Você" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</center>
+<div class="video-wrapper">
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/4ULxVMcAO38" title="Seja bem-vindo à Odontoprev!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/rWes7M1Q0vQ" title="OdontoPrev - Sua Boca Fala por Você" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+</div>
   <footer>
         <img src="src/images/wave.svg" alt="">
 
@@ -1198,144 +1241,124 @@ width: 40%;
         </div>
     </footer>
     <script>
-        const form = document.getElementById("contact-form");
+      const form = document.getElementById("contact-form");
   
-        const name = document.getElementById("name");
-        const email = document.getElementById("email");
-        const phone = document.getElementById("phone");
-        //const subject = document.getElementById("subject");
-        //const message = document.getElementById("message");
+      const name = document.getElementById("name");
+      const email = document.getElementById("email");
+      const phone = document.getElementById("phone");
   
-        // Máscara de telefone
-        IMask(phone, {
-          mask: "(00) 00000-0000",
-        });
+      // Máscara de telefone
+      IMask(phone, {
+        mask: "(00) 00000-0000",
+      });
   
-        // Função de validação de cada campo
-        const validateField = (input, condition, message) => {
-          const fieldDiv = input.parentElement;
-          const errorDiv = fieldDiv.querySelector(".error-txt");
-          const icon = fieldDiv.querySelector(".status-icon");
+      // Função de validação de cada campo
+      const validateField = (input, condition, message) => {
+        const fieldDiv = input.parentElement;
+        const errorDiv = fieldDiv.querySelector(".error-txt");
+        const icon = fieldDiv.querySelector(".status-icon");
   
-          if (!condition) {
-            errorDiv.innerText = message;
-            errorDiv.style.display = "block";
-            fieldDiv.classList.add("error");
-            fieldDiv.classList.remove("success");
-            return false;
-          } else {
-            errorDiv.style.display = "none";
-            fieldDiv.classList.remove("error");
-            fieldDiv.classList.add("success");
-            return true;
-          }
-        };
+        if (!condition) {
+          errorDiv.innerText = message;
+          errorDiv.style.display = "block";
+          fieldDiv.classList.add("error");
+          fieldDiv.classList.remove("success");
+          return false;
+        } else {
+          errorDiv.style.display = "none";
+          fieldDiv.classList.remove("error");
+          fieldDiv.classList.add("success");
+          return true;
+        }
+      };
   
-        // Validações em tempo real
-        name.addEventListener("input", () => {
-          validateField(
-            name,
-            name.value.trim() !== "",
-            "Digite seu nome completo"
-          );
-        });
+      // Validações em tempo real
+      name.addEventListener("input", () => {
+        validateField(
+          name,
+          name.value.trim() !== "",
+          "Digite seu nome completo"
+        );
+      });
   
-        email.addEventListener("input", () => {
-          const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          validateField(
-            email,
-            emailPattern.test(email.value.trim()),
-            "Digite um e-mail válido"
-          );
-        });
+      email.addEventListener("input", () => {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        validateField(
+          email,
+          emailPattern.test(email.value.trim()),
+          "Digite um e-mail válido"
+        );
+      });
   
-        phone.addEventListener("input", () => {
-          validateField(
-            phone,
-            phone.value.trim().length >= 14,
-            "Telefone inválido"
-          );
-        });
+      phone.addEventListener("input", () => {
+        validateField(
+          phone,
+          phone.value.trim().length >= 14,
+          "Telefone inválido"
+        );
+      });
   
-        // subject.addEventListener("input", () => {
-        //   validateField(subject, subject.value.trim() !== "", "Digite o assunto");
-        // });
+      // Envio final
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
   
-        // message.addEventListener("input", () => {
-        //   validateField(
-        //     message,
-        //     message.value.trim() !== "",
-        //     "Digite a mensagem"
-        //   );
-        // });
+        const isNameValid = validateField(
+          name,
+          name.value.trim() !== "",
+          "Digite seu nome completo"
+        );
+        const isEmailValid = validateField(
+          email,
+          /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim()),
+          "Digite um e-mail válido"
+        );
+        const isPhoneValid = validateField(
+          phone,
+          phone.value.trim().length >= 14,
+          "Telefone inválido"
+        );
   
-        // Envio final
-        form.addEventListener("submit", function (e) {
-          e.preventDefault();
+        if (isNameValid && isEmailValid && isPhoneValid) {
+          // Remover máscara antes de enviar o telefone
+          const unmaskedPhone = phone.value.replace(/\D/g, "");
   
-          const isNameValid = validateField(
-            name,
-            name.value.trim() !== "",
-            "Digite seu nome completo"
-          );
-          const isEmailValid = validateField(
-            email,
-            /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim()),
-            "Digite um e-mail válido"
-          );
-          const isPhoneValid = validateField(
-            phone,
-            phone.value.trim().length >= 14,
-            "Telefone inválido"
-          );
-        //   const isSubjectValid = validateField(
-        //     subject,
-        //     subject.value.trim() !== "",
-        //     "Digite o assunto"
-        //   );
-        //   const isMessageValid = validateField(
-        //     message,
-        //     message.value.trim() !== "",
-        //     "Digite a mensagem"
-        //   );
+          // Enviar os dados manualmente usando emailjs.send
+          emailjs
+            .send("default_service", "template_621p7oc", {
+              from_name: name.value,
+              email: email.value,
+              phone: unmaskedPhone, // Enviar sem máscara
+            })
+            .then(
+              function () {
+                // Exibir a mensagem de sucesso
+                const successMessage = document.getElementById("success-message");
+                successMessage.style.display = "block"; // Torna a mensagem visível
   
-          if (
-            isNameValid &&
-            isEmailValid &&
-            isPhoneValid 
-           // isSubjectValid &&
-           // isMessageValid
-          ) {
-            // Remover máscara antes de enviar o telefone
-            const unmaskedPhone = phone.value.replace(/\D/g, "");
-  
-            // // Preencher o campo com o telefone sem máscara
-            // phone.value = unmaskedPhone;
-  
-            // Enviar os dados manualmente usando emailjs.send
-            emailjs
-              .send("default_service", "template_621p7oc", {
-                from_name: name.value,
-                email: email.value,
-                phone: phone.value,
-               // subject: subject.value,
-              //  message: message.value,
-              })
-              .then(
-                function () {
-                  alert("Mensagem enviada com sucesso!");
-                  form.reset();
-                  document
-                    .querySelectorAll(".error-txt")
-                    .forEach((el) => (el.style.display = "none"));
-                },
-                function (error) {
-                  alert("Erro ao enviar: " + JSON.stringify(error));
-                }
-              );
-          }
-        });
-      </script>
+                // Resetar o formulário
+                form.reset();
+                document
+                  .querySelectorAll(".error-txt")
+                  .forEach((el) => (el.style.display = "none"));
+                document
+                  .querySelectorAll(".field")
+                  .forEach((field) => field.classList.remove("success", "error"));
+              },
+              function (error) {
+                alert("Erro ao enviar: " + JSON.stringify(error));
+              }
+            );
+        }
+      });
+
+      
+    // Função para fechar a mensagem
+    const closeMessageButton = document.getElementById("close-message");
+    closeMessageButton.addEventListener("click", () => {
+      const successMessage = document.getElementById("success-message");
+      successMessage.style.display = "none"; // Ocultar a mensagem
+    });
+  </script>  
       <script src="src/javascript/script.js"></script>    
       <!-- <script>
         document.addEventListener('contextmenu', event => event.preventDefault());
