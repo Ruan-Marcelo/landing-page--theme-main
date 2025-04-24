@@ -69,11 +69,11 @@
                 <li class="nav-item">
                     <a href="#testimonials">REDE CREDENCIADA</a>
                 </li>
-      
             </ul>
-            <button class="btn-default">
-               <a href="./Contact/index.html">CONTATO</a> 
-            </button>
+
+            <!-- Botão CONTATO separado -->
+      <a href="./Contact/index.html" class="btn-default ">CONTATO</a>
+
 
             <button id="mobile_btn">
                 <i class="fa-solid fa-bars"></i>
@@ -145,15 +145,7 @@
       
           <!-- Segunda linha -->
           <div class="row" style="display: flex; gap: 20px; flex-wrap: wrap;">
-      
-            <!-- Rede Credenciada -->
-            <!-- <div class="col" style="flex: 1; background-color: rgba(43, 172, 175, 0.67); padding: 20px; text-align: center; border-radius: 10px;">
-              <h3 style="color: #db5386;">Rede Credenciada</h3>
-              <p style="color: #fff;">Mais de 28 mil dentistas credenciados no Brasil.</p>
-              <a href="" target="_blank" class="button">Ver Rede</a>
-            </div> -->
-      
-           
+               
   <!-- Ligamos Para Você (50% da largura) -->
   <div class="col" style="flex: 0 0 50%; background-color: rgba(43, 172, 175, 0.67); padding: 20px; text-align: center; border-radius: 10px;">
     <h3 style="color: #db5386;">Ligamos Para Você</h3>
@@ -213,80 +205,105 @@
 </div>
       </section>
       
-      <!-- Estilo simples para os botões -->
       <style>
         .error-txt {
-    font-size: 14px;
-    color: #d93025;
-    text-align: left;
-    margin: -5px 0 10px;
-    display: none;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  form .textarea-field .item{
-    resize: none;
-} 
-
-form .textarea-field .error-txt{
-    margin-top: -10px;
-
-}
+          font-size: 14px;
+          color: #d93025;
+          text-align: left;
+          margin: -5px 0 10px;
+          display: none;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+      
+        form .textarea-field .item {
+          resize: none;
+        }
+      
+        form .textarea-field .error-txt {
+          margin-top: -10px;
+        }
+      
         .field {
-    position: relative;
-  }
-  
-  .status-icon {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    display: none;
-  }
-  
-  .field.success .item {
-    border-color: #0f0;
-  }
-  
-  .field.error .item {
-    border-color: #d93025;
-  }
-  
-  .field.success .status-icon {
-    display: block;
-    background: url('https://cdn-icons-png.flaticon.com/512/845/845646.png') no-repeat center/cover;
-  }
-  
-  .field.error .status-icon {
-    display: block;
-    background: url('https://cdn-icons-png.flaticon.com/512/463/463612.png') no-repeat center/cover;
-  }
-
+          position: relative;
+        }
+      
+        .status-icon {
+          position: absolute;
+          right: 15px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 20px;
+          height: 20px;
+          display: none;
+        }
+      
+        .field.success .item {
+          border: 2px solid #0f0;
+        }
+      
+        .field.error .item {
+          border: 2px solid #d93025;
+        }
+      
+        .field.success .status-icon {
+          display: block;
+          background: url('https://cdn-icons-png.flaticon.com/512/845/845646.png') no-repeat center/cover;
+        }
+      
+        .field.error .status-icon {
+          display: block;
+          background: url('https://cdn-icons-png.flaticon.com/512/463/463612.png') no-repeat center/cover;
+        }
+      
         .button {
           background-color: #db5386;
           color: white;
-          padding: 10px 20px;
+          padding: 12px 24px;
           text-decoration: none;
           border: none;
-          border-radius: 5px;
+          border-radius: 8px;
           display: inline-block;
+          font-size: 1rem;
+          font-weight: 600;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
         }
       
         .button:hover {
           background-color: #c03e73;
         }
       
+        .row {
+          display: flex;
+          gap: 20px;
+          flex-wrap: wrap;
+        }
+      
+        .col {
+          flex: 1;
+          min-width: 280px;
+          background-color: rgba(43, 172, 175, 0.67);
+          padding: 20px;
+          text-align: center;
+          border-radius: 10px;
+        }
+      
         @media (max-width: 768px) {
           .row {
             flex-direction: column;
           }
+      
+          #contact-form input {
+            width: 100% !important;
+          }
+      
+          #contact-form button {
+            width: 100%;
+          }
         }
       </style>
-      
-          
-
+              
         <section id="menu">
             <h2 class="section-title">Plano odontoprev Empresarial
             </h2>

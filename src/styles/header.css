@@ -53,6 +53,14 @@ header {
     display: none;
   }
 
+  #mobile_btn i {
+    transition: transform 0.3s ease;
+  }
+  
+  #mobile_btn i.fa-x {
+    transform: rotate(90deg);
+  }
+
   #mobile_btn {
     display: block;
     border: none;
