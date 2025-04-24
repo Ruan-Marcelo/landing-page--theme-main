@@ -20,103 +20,11 @@
       });
     })();
   </script>
-          <!-- <script>
-            emailjs.init("bdIoVA3nIoWgxDFVr");
-          </script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.4.2/imask.min.js"></script>
     <title>CORRETORES AUTORIZADOS ODONTOPREV</title>
 </head>
-<style>
- /* Dropdown ativado ao passar o mouse */
-.nav-item details {
-    position: relative;
-}
 
-.nav-item summary {
-    list-style: none;
-    cursor: pointer;
-    font-weight: 600;
-    color: #005aa7; /* Cor principal do tema OdontoPrev */
-}
-
-.nav-item summary::-webkit-details-marker {
-    display: none;
-}
-
-/* Menu suspenso */
-.nav-item:hover .dropdown-menu {
-    display: flex;
-}
-
-.dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #ffffff; /* Fundo branco */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 8px 0;
-    display: none; /* Escondido por padrão */
-    flex-direction: column;
-    border-radius: 4px;
-    min-width: 160px;
-    z-index: 10;
-}
-
-.dropdown-menu li {
-    list-style: none;
-    padding: 8px 16px;
-    transition: background 0.2s;
-}
-
-.dropdown-menu li a {
-    text-decoration: none;
-    color: #005aa7; /* Cor dos links */
-    font-size: 0.95rem;
-}
-
-.dropdown-menu li:hover {
-    background-color: #f2f5f7; /* Cor de fundo ao passar o mouse */
-}
-
-.dropdown-menu li a:hover {
-    color: #003d7a; /* Cor ao passar o mouse sobre o link */
-}
-/* TOP BAR */
-#top-bar .container{
-  display: flex;
-  justify-content: space-between;
-  text-align: center;
-  background: #0055A4;
-}
-#top-bar{
-  background-color: #0055A4;
-  font-size: 20px;
-  color: #ccc;
-}
-.odonto{
-  transition: 0.5s;
-}
-.odonto:hover{
-  margin: 20px;
-  background: #003d7a;
-  border-radius: 6px;
-}
-
-</style>
 <body>
-  
-  <!-- COOKIE -->
-  <!-- <div id="status-cookie"></div>
-
-  <div id="cookie-banner" class="cookie-banner">
-    <p>Este site utiliza cookies para melhorar sua experiência. Ao aceitar, salvamos a data de consentimento.</p>
-    <div class="cookie-buttons">
-      <button onclick="aceitarCookies()">Aceitar</button>
-      <button onclick="recusarCookies()">Recusar</button>
-    </div>
-  </div> -->
-<!-- COOKIE -->
-
   <div id="top-bar">
     <div class="container">
   
@@ -127,22 +35,14 @@
   
       <!-- Telefones -->
       <div class="section section-center">
-        <strong><i class="bi bi-person-vcard-fill"></i> CNPJ: 13.165.921/0001-56 &nbsp;  <br> &nbsp; <i class="bi bi-telephone-fill"></i> (16) 99125-4525</strong>
-      </div>
-  
-      <!-- Redes sociais -->
-      <div class="section section-right">
-        <a href="" target="_blank" aria-label="Facebook"><i class="icon-facebook"></i></a>
-        <a href="" target="_blank" aria-label="Instagram"><i class="icon-instagram"></i></a>
-        <a href="" target="_blank" aria-label="Twitter"><i class="icon-twitter"></i></a>
-        <a href="" aria-label="E-mail"><i class="icon-envelop"></i></a>
+        <strong><i class="bi bi-person-vcard-fill"></i> CNPJ: 13.165.921/0001-56 <i class="bi bi-telephone-fill"></i> (16) 99125-4525</strong>
       </div>
   
     </div>
   </div>
     <header>     
         <nav id="navbar">
-          <a href="./index.html"> <img src="./src/images/Logo-odontoprev-plano-odontologicos.png" alt="OdontoPrev"></a> 
+          <a href="./index.html"> <img src="./src/images/Logo-odontoprev-plano-odontologicos.png" alt="OdontoPrev" id="logo"></a> 
 
             <ul id="nav_list">
                 <li class="nav-item active">
@@ -169,8 +69,8 @@
                 <li class="nav-item">
                     <a href="#testimonials">REDE CREDENCIADA</a>
                 </li>
+      
             </ul>
-
             <button class="btn-default">
                <a href="./Contact/index.html">CONTATO</a> 
             </button>
@@ -204,11 +104,11 @@
                 <li class="nav-item">
                     <a href="#testimonials">REDE CREDENCIADA</a>
                 </li>
-            </ul>
 
-            <button class="btn-default">
-                <a href="./Contact/index.html">CONTATO</a> 
-            </button>
+                <li class="nav-item">             
+                  <a href="./Contact/index.html">CONTATO</a> 
+              </li>
+            </ul>
         </div>
     </header>
 
@@ -262,7 +162,7 @@
         <div class="input-field field">
           <input
             type="text"
-            placeholder="Full Name"
+            placeholder="Nome Completo"
             id="name"
             class="item"
             autocomplete="off"
@@ -274,7 +174,7 @@
         <div class="input-field field">
           <input
             type="text"
-            placeholder="Email Address"
+            placeholder="Seu melhor Email"
             id="email"
             class="item"
             autocomplete="off"
@@ -289,7 +189,7 @@
         <div class="input-field field">
           <input
             type="text"
-            placeholder="Phone Number"
+            placeholder="Número de telefone"
             id="phone"
             class="item"
             autocomplete="off"
@@ -1267,7 +1167,7 @@ width: 40%;
 
             <div class="social-media-buttons">
                 <a href="">
-                    <i class="fa-brands fa-whatsapp"></i>
+                    <i class="fa-brands fa-whatsapp"onclick="abrirWhatsApp()"></i>
                 </a>
 
                 <a href="">
@@ -1420,13 +1320,13 @@ width: 40%;
         });
       </script>
       <script src="src/javascript/script.js"></script>    
-      <script>
+      <!-- <script>
         document.addEventListener('contextmenu', event => event.preventDefault());
         document.addEventListener('keydown', event => {
           if (event.ctrlKey && (event.key === 'u' || event.key === 's' || event.key === 'c')) {
             event.preventDefault();
           }
         });
-      </script>
+      </script> -->
 </body>
 </html>

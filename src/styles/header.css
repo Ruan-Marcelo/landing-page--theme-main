@@ -6,17 +6,11 @@ header {
   background-color: var(--color-primary-1);
   z-index: 3;
 }
-
 #navbar {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-#nav_logo {
-  font-size: 24px;
-  color: var(--color-primary-6);
 }
 
 #nav_list {
@@ -50,6 +44,10 @@ header {
 }
 
 @media screen and (max-width: 1170px) {
+  #logo{
+    width: 250px;
+    
+  }
   #nav_list,
   #navbar .btn-default {
     display: none;
@@ -64,9 +62,10 @@ header {
   }
 
   #mobile_menu.active {
+    text-align: right;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
   }
 
   #mobile_nav_list {
@@ -78,6 +77,81 @@ header {
 
   #mobile_nav_list .nav-item {
     list-style: none;
-    text-align: center;
+    text-align: right;
+  }
+  #top-bar{
+    display: none;
   }
 }
+
+ /* Dropdown ativado ao passar o mouse */
+ .nav-item details {
+  position: relative;
+}
+
+.nav-item summary {
+  list-style: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: #005aa7; /* Cor principal do tema OdontoPrev */
+}
+
+.nav-item summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Menu suspenso */
+.nav-item:hover .dropdown-menu {
+  display: flex;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ffffff; /* Fundo branco */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 8px 0;
+  display: none; /* Escondido por padrão */
+  flex-direction: column;
+  border-radius: 4px;
+  min-width: 160px;
+  z-index: 10;
+}
+
+.dropdown-menu li {
+  text-align: center;
+  list-style: none;
+  padding: 8px 16px;
+  transition: background 0.2s;
+}
+
+.dropdown-menu li a {
+  text-decoration: none;
+  color: #005aa7; /* Cor dos links */
+  font-size: 0.95rem;
+}
+
+.dropdown-menu li:hover {
+  background-color: #f2f5f7; /* Cor de fundo ao passar o mouse */
+}
+
+.dropdown-menu li a:hover {
+  color: #003d7a; /* Cor ao passar o mouse sobre o link */
+}
+/* TOP BAR */
+#top-bar .container{
+display: flex;
+justify-content: space-between;
+text-align: center;
+background: #0055A4;
+}
+#top-bar{
+background-color: #0055A4;
+font-size: 15px;
+color: #ccc;
+}
+.odonto{
+transition: 0.5s;
+}
+

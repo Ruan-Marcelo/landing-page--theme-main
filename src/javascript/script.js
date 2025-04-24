@@ -83,25 +83,25 @@ $(document).ready(function() {
       }
 
 
-    // Função para aceitar cookies
-function aceitarCookies() {
-    const dataAtual = new Date().toISOString(); // Obtém a data atual
-    document.cookie = "cookieConsentDate=" + encodeURIComponent(dataAtual) + "; path=/; max-age=31536000"; // Armazena a data de consentimento nos cookies
-    document.getElementById("cookie-banner").style.display = "none"; // Oculta o banner de cookies
-    mostrarStatusCookie(dataAtual); // Mostra o status de consentimento (se necessário)
+//     // Função para aceitar cookies
+// function aceitarCookies() {
+//     const dataAtual = new Date().toISOString(); // Obtém a data atual
+//     document.cookie = "cookieConsentDate=" + encodeURIComponent(dataAtual) + "; path=/; max-age=31536000"; // Armazena a data de consentimento nos cookies
+//     document.getElementById("cookie-banner").style.display = "none"; // Oculta o banner de cookies
+//     mostrarStatusCookie(dataAtual); // Mostra o status de consentimento (se necessário)
     
-    // Envia um e-mail via EmailJS com as informações de consentimento
-    emailjs.send("default_service", "template_6ewf9ti", {
-      data_consentimento: new Date().toLocaleString("pt-BR"),
-      usuario: navigator.userAgent, // Envia informações do navegador do usuário
-      pagina: window.location.href // Envia o URL da página
-    }).then(function(response) {
-      console.log("Email enviado com sucesso!", response.status, response.text); // Caso o e-mail seja enviado com sucesso
-    }, function(error) {
-      console.error("Erro ao enviar e-mail:", error); // Caso ocorra um erro no envio
-      alert("Ocorreu um erro ao enviar o e-mail. Tente novamente mais tarde."); // Mensagem de erro
-    });
-  }
+//     // Envia um e-mail via EmailJS com as informações de consentimento
+//     emailjs.send("default_service", "template_6ewf9ti", {
+//       data_consentimento: new Date().toLocaleString("pt-BR"),
+//       usuario: navigator.userAgent, // Envia informações do navegador do usuário
+//       pagina: window.location.href // Envia o URL da página
+//     }).then(function(response) {
+//       console.log("Email enviado com sucesso!", response.status, response.text); // Caso o e-mail seja enviado com sucesso
+//     }, function(error) {
+//       console.error("Erro ao enviar e-mail:", error); // Caso ocorra um erro no envio
+//       alert("Ocorreu um erro ao enviar o e-mail. Tente novamente mais tarde."); // Mensagem de erro
+//     });
+//   }
   
 // // Função para aceitar cookies
 // function aceitarCookies() {
