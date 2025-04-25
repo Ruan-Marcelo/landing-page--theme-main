@@ -87,9 +87,7 @@ header {
     list-style: none;
     text-align: right;
   }
-  #top-bar{
-    display: none;
-  }
+
 }
 
  /* Dropdown ativado ao passar o mouse */
@@ -147,19 +145,40 @@ header {
 .dropdown-menu li a:hover {
   color: #003d7a; /* Cor ao passar o mouse sobre o link */
 }
-/* TOP BAR */
-#top-bar .container{
-display: flex;
-justify-content: space-between;
-text-align: center;
-background: #0055A4;
-}
-#top-bar{
-background-color: #0055A4;
-font-size: 15px;
-color: #ccc;
-}
-.odonto{
-transition: 0.5s;
+#top-bar {
+  background-color: #0055A4;
+  font-size: 15px;
+  color: #ccc;
+  padding: 10px 0;
 }
 
+#top-bar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Faz os itens quebrarem linha se necessário */
+  gap: 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+#top-bar .section {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+#top-bar .section-left {
+  text-align: left;
+}
+
+#top-bar .section-center {
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  #top-bar .section {
+    flex: 1 1 100%;
+    text-align: center !important;
+  }
+}
