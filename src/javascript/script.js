@@ -85,7 +85,24 @@ $(document).ready(function () {
         window.open(url, '_blank');
       }
 
+      //Script para mostrar/esconder e rolar para o topo 
+      const btnTopo = document.getElementById("btn-topo");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          btnTopo.style.display = "block";
+        } else {
+          btnTopo.style.display = "none";
+        }
+      });
+    
+      btnTopo.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
 
+      
 //     // Função para aceitar cookies
 // function aceitarCookies() {
 //     const dataAtual = new Date().toISOString(); // Obtém a data atual

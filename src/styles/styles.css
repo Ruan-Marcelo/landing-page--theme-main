@@ -137,6 +137,27 @@ section {
     width: 90%; /* Menor largura em telas menores */
   }
 }
+
+#btn-topo {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  background-color: #005baa; /* Azul OdontoPrev */
+  color: white;
+  border: none;
+  padding: 12px 15px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  display: none;
+  transition: opacity 0.3s ease;
+}
+
+#btn-topo:hover {
+  background-color: #003f7f;
+}
 /* cookies
 .cookie-banner {
   position: fixed;
