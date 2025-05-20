@@ -482,144 +482,7 @@
     
         </section>
             <h3 class="section-subtitle center">Procedimentos Cobertos Pelo Plano Integral DOC Empresarial</h3>
-            <style>
-                .container {
-                  max-width: 800px;
-                  margin: 0 auto;
-                  padding: 20px;
-                  text-align: center;
-                }
-              
-                .toggle-button {
-                  cursor: pointer;
-                  color: #0055A4;
-                  font-weight: bold;
-                  text-decoration: underline;
-                  font-size: 18px;
-                  margin-bottom: 10px;
-                }
-              
-                #cobertura-completa {
-                  display: none;
-                  margin-top: 20px;
-                  padding: 20px;
-                  text-align: left;
-                  background-color: #f9f9f9;
-                  border-radius: 8px;
-                  border: 1px solid #ccc;
-                }
-              
-                #cobertura-completa h4 {
-                  margin-top: 15px;
-                  color: #0055A4;
-                }
-              
-                #cobertura-completa ul {
-                  padding-left: 20px;
-                }
-              
-                #cobertura-completa ul li {
-                  margin-bottom: 6px;
-                }
-              </style>
-              
-              <div class="container">
-                <p class="toggle-button"onclick="toggleCobertura()"><i class="bi bi-chevron-down"></i>  Consulte a Cobertura Completa Integral Doc LE</p>
-              
-                <div id="cobertura-completa">
-                  <h4>Cirurgias Odontológicas</h4>
-                  <ul>
-                    <li>Cirurgia com aplicação de aloenxertos</li>
-                    <li>Consulta com especialista em Estomatologia</li>
-                    <li>Redução de tuberosidade</li>
-                    <li>Remoção de corpo estranho no seio maxilar</li>
-                    <li>Tracionamento cirúrgico para fins ortodônticos</li>
-                  </ul>
-              
-                  <h4>Dentística</h4>
-                  <ul>
-                    <li>Clareamento Dentário Caseiro</li>
-                    <li>Núcleo de preenchimento</li>
-                    <li>Restauração com pino</li>
-                  </ul>
-              
-                  <h4>Emergência</h4>
-                  <ul>
-                    <li>Tratamento de luxação de ATM</li>
-                  </ul>
-              
-                  <h4>Endodontia</h4>
-                  <ul>
-                    <li>Clareamento de dente desvitalizado</li>
-                  </ul>
-              
-                  <h4>Odontologia Legal</h4>
-                  <ul>
-                    <li>Consulta para auditoria técnica</li>
-                  </ul>
-              
-                  <h4>Odontopediatria</h4>
-                  <ul>
-                    <li>Adequação do meio bucal</li>
-                    <li>Mantenedor de espaço fixo e removível</li>
-                  </ul>
-              
-                  <h4>Periodontia</h4>
-                  <ul>
-                    <li>Consulta com especialista</li>
-                    <li>Enxerto conjuntivo</li>
-                    <li>Manutenção periodontal</li>
-                    <li>Sepultamento radicular</li>
-                  </ul>
-              
-                  <h4>Prevenção</h4>
-                  <ul>
-                    <li>Teste de capacidade tampão da saliva</li>
-                    <li>Teste de contagem microbiana</li>
-                  </ul>
-              
-                  <h4>Prótese Dentária</h4>
-                  <ul>
-                    <li>Coroa total acrílica prensada</li>
-                  </ul>
-              
-                  <h4>Radiologia</h4>
-                  <ul>
-                    <li>Documentações ortodônticas (básica, completa, controle, especial, ortopédica)</li>
-                    <li>Radiografia panorâmica, ATM, mão/punho, telerradiografia com traçados</li>
-                    <li>Modelos ortodônticos e de trabalho</li>
-                    <li>Fotografias intra e extraorais</li>
-                    <li>Slides e análise cefalométrica</li>
-                  </ul>
-                </div>
-              </div>
-              
-              <script>
-                function toggleCobertura() {
-                  const content = document.getElementById("cobertura-completa");
-                  content.style.display = content.style.display === "none" ? "block" : "none";
-                }
-              </script>
-<section id="tratamentos">
-    <div class="lists-container">
-        <ul>
-            <li>Documentação ortodôntica</li>
-            <li>Prótese unitária (Ex.: coroa metálica)</li>
-            <li>Cirurgias</li>
-            <li>Radiografias</li>
-            <li>Recuperação de dente quebrado por queda</li>
-        </ul>
-
-        <ul>
-            <li>Extração do dente do siso</li>
-            <li>Tratamento de canal e gengiva</li>
-            <li>Tratamento de mau hálito</li>
-            <li>Consultas e limpezas periódicas</li>
-            <li>Restaurações</li>
-        </ul>
-    </div>
-</section>
-
+                      
 <style>
     /* Adicionando estilo para centralizar as listas e alinhá-las lado a lado */
     #tratamentos {
@@ -655,6 +518,83 @@
     }
 </style>
 
+<div class="container">
+    <p class="toggle-button" onclick="togleCobertura()">
+      <i class="bi bi-chevron-down"></i> Consulte a Cobertura Completa Integral Doc LE
+    </p>
+  
+    <div id="cobertura-completa2" class="cobertura-section">
+      <div class="coluna-cobertura">
+        <h4>Cirurgias Odontológicas</h4>
+        <ul>
+          <li>Cirurgia com aplicação de aloenxertos</li>
+          <li>Consulta com especialista em Estomatologia</li>
+          <li>Redução de tuberosidade</li>
+          <li>Remoção de corpo estranho no seio maxilar</li>
+          <li>Tracionamento cirúrgico para fins ortodônticos</li>
+        </ul>
+  
+        <h4>Dentística</h4>
+        <ul>
+          <li>Clareamento Dentário Caseiro</li>
+          <li>Núcleo de preenchimento</li>
+          <li>Restauração com pino</li>
+        </ul>
+  
+        <h4>Emergência</h4>
+        <ul>
+          <li>Tratamento de luxação de ATM</li>
+        </ul>
+  
+        <h4>Endodontia</h4>
+        <ul>
+          <li>Clareamento de dente desvitalizado</li>
+        </ul>
+  
+        <h4>Odontologia Legal</h4>
+        <ul>
+          <li>Consulta para auditoria técnica</li>
+        </ul>
+      </div>
+  
+      <div class="coluna-cobertura">
+        <h4>Odontopediatria</h4>
+        <ul>
+          <li>Adequação do meio bucal</li>
+          <li>Mantenedor de espaço fixo e removível</li>
+        </ul>
+  
+        <h4>Periodontia</h4>
+        <ul>
+          <li>Consulta com especialista</li>
+          <li>Enxerto conjuntivo</li>
+          <li>Manutenção periodontal</li>
+          <li>Sepultamento radicular</li>
+        </ul>
+  
+        <h4>Prevenção</h4>
+        <ul>
+          <li>Teste de capacidade tampão da saliva</li>
+          <li>Teste de contagem microbiana</li>
+        </ul>
+  
+        <h4>Prótese Dentária</h4>
+        <ul>
+          <li>Coroa total acrílica prensada</li>
+        </ul>
+  
+        <h4>Radiologia</h4>
+        <ul>
+          <li>Documentações ortodônticas (básica, completa, controle, especial, ortopédica)</li>
+          <li>Radiografia panorâmica, ATM, mão/punho, telerradiografia com traçados</li>
+          <li>Modelos ortodônticos e de trabalho</li>
+          <li>Fotografias intra e extraorais</li>
+          <li>Slides e análise cefalométrica</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
   <style>
     .toggle-button {
       font-size: 20px;
@@ -720,6 +660,26 @@
     }
   </script>
   
+  <section id="tratamentos">
+    <h2 class="section-title">Procedimentos Cobertos Pelo Plano Master Empresarial</h2>
+    <div class="lists-container">
+        <ul>
+            <li>Documentação ortodôntica</li>
+            <li>Prótese unitária (Ex.: coroa metálica)</li>
+            <li>Cirurgias</li>
+            <li>Radiografias</li>
+            <li>Recuperação de dente quebrado por queda</li>
+        </ul>
+
+        <ul>
+            <li>Extração do dente do siso</li>
+            <li>Tratamento de canal e gengiva</li>
+            <li>Tratamento de mau hálito</li>
+            <li>Consultas e limpezas periódicas</li>
+            <li>Restaurações</li>
+        </ul>
+    </div>
+</section>
 
 <style>
     /* Adicionando estilo para centralizar as listas e alinhá-las lado a lado */
@@ -755,43 +715,6 @@
         margin-bottom: 10px;
     }
 </style>
-
-        <section id="testimonials">
-            <img src="./src/images/WHATS-ODPV-576x1024.jpg" id="testimonial_chef" alt="">
-
-            <div id="testimonials_content">
-                <h2 class="section-title">Procedimentos Cobertos Pelo Plano Master Empresarial</h2>
-               
-                 <p style="text-align: center;">  A Odontoprev está cheia de novidades legais para você e seus clientes.</p> <br>
-
-                <p style="text-align: center;">     Salve este e-mail para ficar por dentro de todas as notícias.</p> <br>
-                    
-            <p style="text-align: center;">   Em parceria com as Drogarias São Paulo e Pacheco, a partir de Abril os beneficiários da Odontoprev terão descontos de 5% a 75% em diversos produtos (higiene bucal, medicamentos e perfumaria).</p> <br>
-                    
-        <p style="text-align: center;">É a Odontoprev trazendo mais economia para você</p> <br>
-              
-
-        <iframe width="410" height="286" src="https://www.youtube.com/embed/p0sMV-V7mnQ" title="VIDEO ODONTOPREV" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-                   <img src="./src/images/Plano-odontoprev.png" width="100%" alt="Pessoas sorrindo com escovas de dente">
-        </section>
-    </main>
-
-    <h2 class="section-title center">Procedimentos Cobertos Pelo Plano Master Empresarial</h2>
-
-    <p style="text-align: center; padding: 0 10%; box-sizing: border-box;"><i class="bi bi-patch-check"style="color: blue; font-size: 20px;"></i><strong>Titulares:</strong> Sócios, diretores e funcionários com vínculo empregatício, estagiários com contrato de estágio, contratados temporários, menor aprendiz.</p> <br>
-
-    <p style="text-align: center; padding: 0 10%; box-sizing: border-box;"><i class="bi bi-patch-check"style="color: blue; font-size: 20px;"></i><strong>Dependentes diretos:</strong> Cônjuge ou companheira, filhos solteiros naturais, adotivos ou enteados com até 21 anos 11 meses e 29 dias ou até 24 anos 11 meses e 29 dias, se comprovadamente universitários e filhos inválidos, assim considerados aqueles elegíveis para efeito da declaração de imposto de renda do titular.
-
-    </p> <br>
-        
-    <p style="text-align: center; padding: 0 10%; box-sizing: border-box;"><i class="bi bi-patch-check"style="color: blue; font-size: 20px; margin-bottom: 15px;"></i><strong>Dependentes indiretos:</strong>  pai, mãe, avós, netos, bisavós, bisnetos, irmãos, tios, sobrinhos, sogros e cunhados, os indivíduos que possuam com o beneficiário titular relação de parentesco até o terceiro grau consanguíneo ou até o segundo grau de afinidade, desde que devidamente comprovados.</p> <br>
-   
-    <h2 class="section-title center" style="color: purple; margin-top: 50px;">Procedimentos Cobertos Pelo Plano Master Empresarial</h2>
-    <p style="text-align: center; padding: 0 10%; box-sizing: border-box;"><i class="bi bi-patch-check"style="color: blue; font-size: 20px; margin-bottom: 15px;"></i><strong style="color: blue;">CARÊNCIA ZERO**</strong>  para todos os procedimentos no plano empresarial a partir de 3 vidas em qualquer plano acima.</p> <br>
-
-   <center><a href="./Contact/index.html"  class="button" style="margin-bottom: 20px;" onclick="abrirWhatsApp()"> Contratar Odontoprev Empresarial Online </a></center>
-
 
    <section class="section" id="planos-odontoprev" style="
    background-image: url('./src/images/Plano-odontoprev.png');
@@ -831,159 +754,10 @@ width: 40%;
 
   </section>
 
-  <h2 class="section-title center" style="color: purple; margin-top: 50px;">Plano odontoPrev Individual Familiar</h2>
-  <p style="text-align: center; padding: 0 10%; box-sizing: border-box;">Somente na Odontoprev você faz a contratação de seu plano odontológico 100% on-line, de forma rápida, segura e sem burocracia, com opção de pagamento no boleto anual com carência zero após confirmação do pagamento ou no cartão de crédito em até 12 parcelas ou ainda, através de boleto mensal, os valores abaixo são aplicados por beneficiários.</p>
-
-  <section id="menu">
-  <div id="dishes">
-        <div class="dish">
-            <div class="dish-heart">
-                <i class="fa-solid fa-heart"></i>
-            </div>
-
-            <img src="./src/images/cnpj-master-odontoprev-150x150.png" class="dish-image" alt="">
-
-            <h3 class="dish-title">
-                Lorem Ipsum
-            </h3>
-
-            <span class="dish-description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </span>
-
-            <div class="dish-rate">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <span>(500+)</span>
-            </div>
-
-            <div class="dish-price">
-                <h4>R$20,00</h4>
-                <button class="btn-default"onclick="abrirWhatsApp()">
-                  Contratar
-                </button>
-            </div>
-        </div>
-
-        <div class="dish">
-            <div class="dish-heart">
-                <i class="fa-solid fa-heart"></i>
-            </div>
-        
-            <img src="./src/images/cnpj-master-odontoprev-150x150.png" class="dish-image" alt="OdontoPrev Empresarial">
-        
-            <h3 class="dish-title">
-                Integral Doc MEI
-            </h3>
-        
-            <span class="dish-description">
-                Plano OdontoPrev Empresarial para CNPJ/MEI. Cobertura conforme Rol da ANS. De 03 a 29 vidas. Contratação online.
-            </span>
-        
-            <div class="dish-rate">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <span>(+500 avaliações)</span>
-            </div>
-        
-            <div class="dish-price">
-                <h4>R$32,89 <small>/ pessoa</small></h4>
-                <button class="btn-default"onclick="abrirWhatsApp()">
-                  Contratar
-                </button>
-            </div>
-        </div>
-      
-        <div class="dish">
-            <div class="dish-heart">
-                <i class="fa-solid fa-heart"></i>
-            </div>
-        
-            <img src="./src/images/cnpj-master-odontoprev-150x150.png" class="dish-image" alt="OdontoPrev Empresarial">
-        
-            <h3 class="dish-title">
-                Integral Doc MEI
-            </h3>
-        
-            <span class="dish-description">
-                Plano OdontoPrev Empresarial para CNPJ/MEI. Cobertura conforme Rol da ANS. De 03 a 29 vidas. Contratação online.
-            </span>
-        
-            <div class="dish-rate">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <span>(+500 avaliações)</span>
-            </div>
-        
-            <div class="dish-price">
-                <h4>R$32,89 <small>/ pessoa</small></h4>
-                <button class="btn-default"onclick="abrirWhatsApp()">
-                  Contratar
-                </button>
-            </div>
-        </div>
-
-        <div class="dish">
-            <div class="dish-heart">
-                <i class="fa-solid fa-heart"></i>
-            </div>
-        
-            <img src="./src/images/cnpj-master-odontoprev-150x150.png" class="dish-image" alt="OdontoPrev Empresarial">
-        
-            <h3 class="dish-title">
-                Integral Doc MEI
-            </h3>
-        
-            <span class="dish-description">
-                Plano OdontoPrev Empresarial para CNPJ/MEI. Cobertura conforme Rol da ANS. De 03 a 29 vidas. Contratação online.
-            </span>
-        
-            <div class="dish-rate">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <span>(+500 avaliações)</span>
-            </div>
-        
-            <div class="dish-price">
-                <h4>R$32,89 <small>/ pessoa</small></h4>
-                <button class="btn-default"onclick="abrirWhatsApp()">
-                  Contratar
-                </button>
-            </div>
-        </div> <br>       
-</section>  
-<center>
-    <img loading="lazy" decoding="async" src="./src/images/Foto-Pessoa-Sorrindo-Odontoprev-768x240.jpg" class="responsive-img" alt="Foto Pessoa Sorrindo Odontoprev">
-  </center>
-  
-  <style>
-    .responsive-img {
-      max-width: 100%; /* Faz com que a imagem nunca ultrapasse a largura do seu contêiner */
-      height: auto;    /* Ajusta automaticamente a altura para manter a proporção da imagem */
-    }
-  </style>
-
-<h2 class="section-title center" style=" margin-top: 50px;">Compare e veja as diferenças</h2>
-<center><img loading="lazy" decoding="async" width="400px" height="500px" src="./src/images/tabela_planos-768x633.jpg" class="attachment-large size-large" alt="tabela_planos" sizes="auto, (max-width: 1020px) 100vw, 1020px"></center>
 
 <div class="video-wrapper">
   <div class="video-container">
     <iframe src="https://www.youtube.com/embed/4ULxVMcAO38" title="Seja bem-vindo à Odontoprev!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  </div>
-  <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/rWes7M1Q0vQ" title="OdontoPrev - Sua Boca Fala por Você" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   </div>
 </div>
   <footer>
