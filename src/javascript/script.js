@@ -1,115 +1,116 @@
 $(document).ready(function () {
-    // Menu mobile toggle
-    $('#mobile_btn').on('click', function () {
-        $('#mobile_menu').toggleClass('active');
-        $(this).find('i').toggleClass('fa-x');
+  // Menu mobile toggle
+  $("#mobile_btn").on("click", function () {
+    $("#mobile_menu").toggleClass("active");
+    $(this).find("i").toggleClass("fa-x");
+  });
+
+  const sections = $("section");
+  const navItems = $(".nav-item");
+
+  $(window).on("scroll", function () {
+    const header = $("header");
+    const scrollPosition = $(window).scrollTop() - header.outerHeight();
+    let activeSectionIndex = 0;
+
+    // Efeito de sombra no scroll
+    if (scrollPosition <= 0) {
+      header.css("box-shadow", "none");
+    } else {
+      header.css("box-shadow", "5px 1px 5px rgba(0, 0, 0, 0.1)");
+    }
+
+    // Verifica qual seção está visível
+    sections.each(function (i) {
+      const section = $(this);
+      const sectionTop = section.offset().top - 96;
+      const sectionBottom = sectionTop + section.outerHeight();
+
+      if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+        activeSectionIndex = i;
+        return false; // para o loop
+      }
     });
 
-    const sections = $('section');
-    const navItems = $('.nav-item');
+    // Destaca o item de menu correspondente à seção ativa
+    navItems.removeClass("active");
+    $(navItems[activeSectionIndex]).addClass("active");
+  });
 
-    $(window).on('scroll', function () {
-        const header = $('header');
-        const scrollPosition = $(window).scrollTop() - header.outerHeight();
-        let activeSectionIndex = 0;
+  // Fecha o menu mobile ao clicar em um link
+  $("#mobile_menu a").on("click", function () {
+    $("#mobile_menu").removeClass("active");
+    $("#mobile_btn").find("i").removeClass("fa-x");
+  });
 
-        // Efeito de sombra no scroll
-        if (scrollPosition <= 0) {
-            header.css('box-shadow', 'none');
-        } else {
-            header.css('box-shadow', '5px 1px 5px rgba(0, 0, 0, 0.1)');
-        }
+  ScrollReveal().reveal("#cta", {
+    origin: "left",
+    duration: 2000,
+    distance: "10%",
+  });
 
-        // Verifica qual seção está visível
-        sections.each(function (i) {
-            const section = $(this);
-            const sectionTop = section.offset().top - 96;
-            const sectionBottom = sectionTop + section.outerHeight();
+  ScrollReveal().reveal(".dish", {
+    origin: "left",
+    duration: 1000,
+    distance: "10%",
+  });
 
-            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-                activeSectionIndex = i;
-                return false; // para o loop
-            }
-        });
+  ScrollReveal().reveal("#testimonial_chef", {
+    origin: "left",
+    duration: 1000,
+    distance: "10%",
+  });
 
-        // Destaca o item de menu correspondente à seção ativa
-        navItems.removeClass('active');
-        $(navItems[activeSectionIndex]).addClass('active');
-    });
-
-    // Fecha o menu mobile ao clicar em um link
-    $('#mobile_menu a').on('click', function () {
-        $('#mobile_menu').removeClass('active');
-        $('#mobile_btn').find('i').removeClass('fa-x');
-    });
-
-    ScrollReveal().reveal('#cta', {
-        origin: 'left',
-        duration: 2000,
-        distance: '10%'
-    });
-
-    ScrollReveal().reveal('.dish', {
-        origin: 'left',
-        duration: 1000,
-        distance: '10%'
-    });
-
-    ScrollReveal().reveal('#testimonial_chef', {
-        origin: 'left',
-        duration: 1000,
-        distance: '10%'
-    })
-
-    ScrollReveal().reveal('.feedback', {
-        origin: 'right',
-        duration: 1000,
-        distance: '10%'
-    })
+  ScrollReveal().reveal(".feedback", {
+    origin: "right",
+    duration: 1000,
+    distance: "10%",
+  });
 });
 
 // onclick="abrirWhatsApp()"
-    function abrirWhatsApp() {
-        const numero = '5516991254525'; // Substitua pelo seu número
-        const mensagem = encodeURIComponent("Olá! Gostaria de mais informações.");
-  
-        // Detecta se o usuário está no mobile
-        const isMobile = /iPhone|Android|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
-  
-        // Escolhe a URL apropriada
-        const url = isMobile
-          ? `https://wa.me/${numero}?text=${mensagem}`
-          : `https://web.whatsapp.com/send?phone=${numero}&text=${mensagem}`;
-  
-        // Abre o link em nova aba
-        window.open(url, '_blank');
-      }
+function abrirWhatsApp() {
+  const numero = "5516991254525"; // Substitua pelo seu número
+  const mensagem = encodeURIComponent("Olá! Gostaria de mais informações.");
 
-      //Script para mostrar/esconder e rolar para o topo 
-      const btnTopo = document.getElementById("btn-topo");
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-          btnTopo.style.display = "block";
-        } else {
-          btnTopo.style.display = "none";
-        }
-      });
-    
-      btnTopo.addEventListener("click", () => {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
-      });
+  // Detecta se o usuário está no mobile
+  const isMobile = /iPhone|Android|iPad|iPod|Windows Phone/i.test(
+    navigator.userAgent
+  );
 
-      
+  // Escolhe a URL apropriada
+  const url = isMobile
+    ? `https://wa.me/${numero}?text=${mensagem}`
+    : `https://web.whatsapp.com/send?phone=${numero}&text=${mensagem}`;
+
+  // Abre o link em nova aba
+  window.open(url, "_blank");
+}
+
+//Script para mostrar/esconder e rolar para o topo
+const btnTopo = document.getElementById("btn-topo");
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    btnTopo.style.display = "block";
+  } else {
+    btnTopo.style.display = "none";
+  }
+});
+
+btnTopo.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
+
 //     // Função para aceitar cookies
 // function aceitarCookies() {
 //     const dataAtual = new Date().toISOString(); // Obtém a data atual
 //     document.cookie = "cookieConsentDate=" + encodeURIComponent(dataAtual) + "; path=/; max-age=31536000"; // Armazena a data de consentimento nos cookies
 //     document.getElementById("cookie-banner").style.display = "none"; // Oculta o banner de cookies
 //     mostrarStatusCookie(dataAtual); // Mostra o status de consentimento (se necessário)
-    
+
 //     // Envia um e-mail via EmailJS com as informações de consentimento
 //     emailjs.send("default_service", "template_6ewf9ti", {
 //       data_consentimento: new Date().toLocaleString("pt-BR"),
@@ -122,14 +123,14 @@ $(document).ready(function () {
 //       alert("Ocorreu um erro ao enviar o e-mail. Tente novamente mais tarde."); // Mensagem de erro
 //     });
 //   }
-  
+
 // // Função para aceitar cookies
 // function aceitarCookies() {
 //     const dataAtual = new Date().toISOString(); // Obtém a data atual
 //     document.cookie = "cookieConsentDate=" + encodeURIComponent(dataAtual) + "; path=/"; // Armazena a data de consentimento nos cookies (sem max-age, vai expirar no fim da sessão)
 //     document.getElementById("cookie-banner").style.display = "none"; // Oculta o banner de cookies
 //     mostrarStatusCookie(dataAtual); // Mostra o status de consentimento (se necessário)
-  
+
 //     // Envia um e-mail via EmailJS com as informações de consentimento
 //     emailjs.send("default_service", "template_6ewf9ti", {
 //       data_consentimento: new Date().toLocaleString("pt-BR"),
@@ -142,7 +143,7 @@ $(document).ready(function () {
 //       alert("Ocorreu um erro ao enviar o e-mail. Tente novamente mais tarde."); // Mensagem de erro
 //     });
 //   }
-  
+
 //   // Função para recusar cookies
 //   function recusarCookies() {
 //     // Apaga o cookie de consentimento
@@ -150,7 +151,7 @@ $(document).ready(function () {
 //     document.getElementById("cookie-banner").style.display = "none"; // Oculta o banner de cookies
 //     document.getElementById("status-cookie").style.display = "none"; // Oculta a exibição do status de consentimento
 //   }
-  
+
 //   // Função para obter o valor de um cookie específico
 //   function getCookie(nome) {
 //     const nomeEQ = nome + "="; // Prepara a chave para busca
@@ -161,7 +162,7 @@ $(document).ready(function () {
 //     }
 //     return null; // Caso o cookie não seja encontrado
 //   }
-  
+
 //   // Função para mostrar o status do consentimento de cookies
 //   function mostrarStatusCookie(dataISO) {
 //     const container = document.getElementById("status-cookie");
@@ -172,7 +173,7 @@ $(document).ready(function () {
 //       // container.style.display = "block"; // Exibe o status de consentimento
 //     }
 //   }
-  
+
 //   // Ao carregar a página
 //   window.onload = function () {
 //     const dataConsentimento = getCookie("cookieConsentDate"); // Tenta obter a data do consentimento nos cookies
@@ -182,5 +183,3 @@ $(document).ready(function () {
 //       mostrarStatusCookie(dataConsentimento); // Se a data de consentimento existir, mostra o status
 //     }
 //   }
-  
-  

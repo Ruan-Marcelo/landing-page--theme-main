@@ -6,12 +6,12 @@
 @import url("footer.css");
 
 :root {
-  --color-primary-1: #FFFFFF;
+  --color-primary-1: #ffffff;
   --color-primary-2: #0055a4;
   --color-primary-3: #0099cc;
   --color-primary-4: #f2f2f2;
-  --color-primary-5: #0099CC;
-  --color-primary-6: #0055A4;
+  --color-primary-5: #0099cc;
+  --color-primary-6: #0055a4;
 
   --color-neutral-0: #ffffff;
   --color-neutral-1: #003366;
@@ -65,12 +65,12 @@ section {
   transition: background-color 0.3s ease;
 }
 
-.center{
+.center {
   text-align: center;
 }
 
 .btn-default:hover {
-  background-color: #003366
+  background-color: #003366;
 }
 
 .social-media-buttons {
@@ -117,7 +117,7 @@ section {
 
 .video-container {
   position: relative;
-  width: 45%;  /* Ajuste a largura conforme necessário */
+  width: 45%; /* Ajuste a largura conforme necessário */
   padding-bottom: 25%; /* Proporção 16:9 */
   height: 0;
   overflow: hidden;
