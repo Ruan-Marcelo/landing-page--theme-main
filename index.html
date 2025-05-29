@@ -187,6 +187,18 @@
           <i class="status-icon fas fa-circle-check"></i>
           <div class="error-txt">Digite um telefone válido</div>
         </div>
+         <div class="input-field field">
+    <textarea
+      id="message"
+      placeholder="Escreva sua mensagem"
+      class="item"
+      autocomplete="off"
+      rows="4"
+      style="margin-bottom: 10px; padding: 8px; width: 80%; resize: none;"
+    ></textarea>
+    <i class="status-icon fas fa-circle-check"></i>
+    <div class="error-txt">Digite uma mensagem</div>
+  </div>
         <button type="submit" class="button">Enviar</button>
       </div>
     </form> <br>
@@ -782,125 +794,99 @@ width: 40%;
     <i class="fa-solid fa-arrow-up"></i>
   </button>
     </footer>
-    <script>
-      const form = document.getElementById("contact-form");
-  
-      const name = document.getElementById("name");
-      const email = document.getElementById("email");
-      const phone = document.getElementById("phone");
-  
-      // Máscara de telefone
-      IMask(phone, {
-        mask: "(00) 00000-0000",
-      });
-  
-      // Função de validação de cada campo
-      const validateField = (input, condition, message) => {
-        const fieldDiv = input.parentElement;
-        const errorDiv = fieldDiv.querySelector(".error-txt");
-        const icon = fieldDiv.querySelector(".status-icon");
-  
-        if (!condition) {
-          errorDiv.innerText = message;
-          errorDiv.style.display = "block";
-          fieldDiv.classList.add("error");
-          fieldDiv.classList.remove("success");
-          return false;
-        } else {
-          errorDiv.style.display = "none";
-          fieldDiv.classList.remove("error");
-          fieldDiv.classList.add("success");
-          return true;
-        }
-      };
-  
-      // Validações em tempo real
-      name.addEventListener("input", () => {
-        validateField(
-          name,
-          name.value.trim() !== "",
-          "Digite seu nome completo"
-        );
-      });
-  
-      email.addEventListener("input", () => {
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        validateField(
-          email,
-          emailPattern.test(email.value.trim()),
-          "Digite um e-mail válido"
-        );
-      });
-  
-      phone.addEventListener("input", () => {
-        validateField(
-          phone,
-          phone.value.trim().length >= 14,
-          "Telefone inválido"
-        );
-      });
-  
-      // Envio final
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-  
-        const isNameValid = validateField(
-          name,
-          name.value.trim() !== "",
-          "Digite seu nome completo"
-        );
-        const isEmailValid = validateField(
-          email,
-          /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim()),
-          "Digite um e-mail válido"
-        );
-        const isPhoneValid = validateField(
-          phone,
-          phone.value.trim().length >= 14,
-          "Telefone inválido"
-        );
-  
-        if (isNameValid && isEmailValid && isPhoneValid) {
-          // Remover máscara antes de enviar o telefone
-          const unmaskedPhone = phone.value.replace(/\D/g, "");
-  
-          // Enviar os dados manualmente usando emailjs.send
-          emailjs
-            .send("service_vbomo7u", "template_ewkm24m", {
-              from_name: name.value,
-              email: email.value,
-              phone: unmaskedPhone, // Enviar sem máscara
-            })
-            .then(
-              function () {
-                // Exibir a mensagem de sucesso
-                const successMessage = document.getElementById("success-message");
-                successMessage.style.display = "block"; // Torna a mensagem visível
-  
-                // Resetar o formulário
-                form.reset();
-                document
-                  .querySelectorAll(".error-txt")
-                  .forEach((el) => (el.style.display = "none"));
-                document
-                  .querySelectorAll(".field")
-                  .forEach((field) => field.classList.remove("success", "error"));
-              },
-              function (error) {
-                alert("Erro ao enviar: " + JSON.stringify(error));
-              }
-            );
-        }
-      });
+<script>
+  const form = document.getElementById("contact-form");
 
-      
-    // Função para fechar a mensagem
-    const closeMessageButton = document.getElementById("close-message");
-    closeMessageButton.addEventListener("click", () => {
-      const successMessage = document.getElementById("success-message");
-      successMessage.style.display = "none"; // Ocultar a mensagem
-    });
-  </script>  
+  const name = document.getElementById("name");
+  const email = document.getElementById("email");
+  const phone = document.getElementById("phone");
+  const message = document.getElementById("message"); // Novo campo
+
+  // Máscara de telefone
+  IMask(phone, {
+    mask: "(00) 00000-0000",
+  });
+
+  // Função de validação de cada campo
+  const validateField = (input, condition, messageText) => {
+    const fieldDiv = input.parentElement;
+    const errorDiv = fieldDiv.querySelector(".error-txt");
+    const icon = fieldDiv.querySelector(".status-icon");
+
+    if (!condition) {
+      errorDiv.innerText = messageText;
+      errorDiv.style.display = "block";
+      fieldDiv.classList.add("error");
+      fieldDiv.classList.remove("success");
+      return false;
+    } else {
+      errorDiv.style.display = "none";
+      fieldDiv.classList.remove("error");
+      fieldDiv.classList.add("success");
+      return true;
+    }
+  };
+
+  // Validações em tempo real
+  name.addEventListener("input", () => {
+    validateField(name, name.value.trim() !== "", "Digite seu nome completo");
+  });
+
+  email.addEventListener("input", () => {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    validateField(email, emailPattern.test(email.value.trim()), "Digite um e-mail válido");
+  });
+
+  phone.addEventListener("input", () => {
+    validateField(phone, phone.value.trim().length >= 14, "Telefone inválido");
+  });
+
+  message.addEventListener("input", () => {
+    validateField(message, message.value.trim() !== "", "Digite uma mensagem");
+  });
+
+  // Envio final
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const isNameValid = validateField(name, name.value.trim() !== "", "Digite seu nome completo");
+    const isEmailValid = validateField(email, /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim()), "Digite um e-mail válido");
+    const isPhoneValid = validateField(phone, phone.value.trim().length >= 14, "Telefone inválido");
+    const isMessageValid = validateField(message, message.value.trim() !== "", "Digite uma mensagem");
+
+    if (isNameValid && isEmailValid && isPhoneValid && isMessageValid) {
+      const unmaskedPhone = phone.value.replace(/\D/g, "");
+
+      // Enviar os dados
+      emailjs.send("service_vbomo7u", "template_ewkm24m", {
+        from_name: name.value,
+        email: email.value,
+        phone: unmaskedPhone,
+        message: message.value
+      })
+      .then(
+        function () {
+          const successMessage = document.getElementById("success-message");
+          successMessage.style.display = "block";
+          form.reset();
+          document.querySelectorAll(".error-txt").forEach((el) => (el.style.display = "none"));
+          document.querySelectorAll(".field").forEach((field) => field.classList.remove("success", "error"));
+        },
+        function (error) {
+          alert("Erro ao enviar: " + JSON.stringify(error));
+        }
+      );
+    }
+  });
+
+  // Fechar mensagem de sucesso
+  const closeMessageButton = document.getElementById("close-message");
+  closeMessageButton.addEventListener("click", () => {
+    const successMessage = document.getElementById("success-message");
+    successMessage.style.display = "none";
+  });
+</script>
+ 
       <script src="src/javascript/script.js"></script>    
       <!-- <script>
         document.addEventListener('contextmenu', event => event.preventDefault());
